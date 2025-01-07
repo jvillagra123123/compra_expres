@@ -1,0 +1,7 @@
+{
+  "name": "compra_expres",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
