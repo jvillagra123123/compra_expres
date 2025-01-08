@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'recover-password',
     loadChildren: () => import('./pages/recover-password/recover-password.module').then( m => m.RecoverPasswordPageModule)
   },
+  {
+    path: 'select-profile',
+    loadChildren: () => import('./pages/select-profile/select-profile.module').then( m => m.SelectProfilePageModule)
+  },
 ];
 
 @NgModule({
