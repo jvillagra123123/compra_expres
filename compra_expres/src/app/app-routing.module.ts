@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'select-profile',
     loadChildren: () => import('./pages/select-profile/select-profile.module').then( m => m.SelectProfilePageModule)
+  },  {
+    path: 'message-register',
+    loadChildren: () => import('./pages/message-register/message-register.module').then( m => m.MessageRegisterPageModule)
   },
+
 ];
 
 @NgModule({
