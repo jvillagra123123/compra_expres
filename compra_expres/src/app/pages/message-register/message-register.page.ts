@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-message-register',
   templateUrl: './message-register.page.html',
   styleUrls: ['./message-register.page.scss'],
+  standalone: false,
 })
 export class MessageRegisterPage implements OnInit {
 
