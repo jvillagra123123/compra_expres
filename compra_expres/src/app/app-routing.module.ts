@@ -26,6 +26,18 @@ const routes: Routes = [
     path: 'message-register',
     loadChildren: () => import('./pages/message-register/message-register.module').then( m => m.MessageRegisterPageModule)
   },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'create-local',
+    loadChildren: () => import('./pages/create-local/create-local.module').then( m => m.CreateLocalPageModule)
+  },
 
 ];
 
