@@ -27,8 +27,18 @@
       <ion-label position="floating">Contraseña</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
-    <div class="error-message" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+    <div class="error-message" *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched">
       La contraseña es obligatoria
+    </div>
+
+    <div class="error-message" *ngIf="loginForm.get('password')?.errors?.['minlength'] && loginForm.get('password')?.touched">
+      La contraseña debe tener al menos 9 caracteres.
+    </div>
+    <div class="error-message" *ngIf="loginForm.get('password')?.errors?.['maxlength'] && loginForm.get('password')?.touched">
+      La contraseña no puede exceder los 20 caracteres.
+    </div>
+    <div class="error-message" *ngIf="loginForm.get('password')?.errors?.['pattern'] && loginForm.get('password')?.touched">
+      La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.
     </div>
    
   </form>

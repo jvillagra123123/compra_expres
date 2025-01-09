@@ -19,9 +19,11 @@ export class LoginPage implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(8), // Mínimo 8 caracteres
+          Validators.minLength(9), // Mínimo 9 caracteres
           Validators.maxLength(20), // Máximo 20 caracteres
-          Validators.pattern(/^[a-zA-Z0-9@#%!&*/]+$/), // Alfanuméricos + caracteres especiales permitidos
+          Validators.pattern(
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#%!&*/])[A-Za-z\d@#%!&*/]+$/
+          ), // Al menos una minúscula, una mayúscula, un número y un carácter especial
         ],
       ],
     });
