@@ -9,15 +9,15 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./features/auth/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  loadChildren: () => import('./features/auth/register/register.module').then( m => m.RegisterPageModule)
   },
   {
     path: 'recover-password',
-    loadChildren: () => import('./pages/recover-password/recover-password.module').then( m => m.RecoverPasswordPageModule)
+    loadChildren: () => import('./features/auth/recover-password/recover-password.module').then( m => m.RecoverPasswordPageModule)
   },
   {
     path: 'select-profile',
@@ -39,16 +39,8 @@ const routes: Routes = [
     path: 'create-local',
     loadChildren: () => import('./pages/create-local/create-local.module').then( m => m.CreateLocalPageModule)
   },  {
-    path: 'registers',
-    loadChildren: () => import('./features/auth/registers/registers.module').then( m => m.RegistersPageModule)
-  },
-  {
-    path: 'registersss',
-    loadChildren: () => import('./features/auth/registersss/registersss.module').then( m => m.RegistersssPageModule)
-  },
-  {
-    path: 'registers',
-    loadChildren: () => import('./features/auth/registers/registers.module').then( m => m.RegistersPageModule)
+    path: 'chat',
+    loadChildren: () => import('./features/chat/chat.module').then( m => m.ChatPageModule)
   },
 
 
