@@ -38,14 +38,7 @@
       <div class="error-message" *ngIf="profileForm.get('lastName')?.touched && profileForm.get('lastName')?.invalid">
         El apellido es obligatorio.
       </div>
-      <!-- Campo Correo -->
-       <ion-item class="input-item" lines="none">
-        <ion-label position="floating">Correo</ion-label>
-        <ion-input type="email" formControlName="email"></ion-input>
-      </ion-item>
-      <div class="error-message" *ngIf="profileForm.get('email')?.touched && profileForm.get('email')?.invalid">
-        Ingresa un correo válido.
-      </div>
+
       <!-- Campo Contraseña -->
       <ion-item class="input-item" lines="none">
         <ion-label position="floating">Contraseña</ion-label>
