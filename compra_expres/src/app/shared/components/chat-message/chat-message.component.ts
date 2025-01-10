@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-chat-message',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat-message.component.scss'],
 })
 export class ChatMessageComponent  implements OnInit {
+  @Input() message?: { text: string; isUser: boolean };
+  @Input() isUser?: boolean;
 
   constructor() { }
 

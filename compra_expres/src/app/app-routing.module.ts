@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { authGuard } from './core/guards/auth.guard';
+import { guestGuard } from './core/guards/guest.guard';
 
 const routes: Routes = [
   {
@@ -9,39 +11,54 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./features/auth/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./features/auth/login/login.module').then( m => m.LoginPageModule),
+    canActivate: [guestGuard]
   },
   {
     path: 'register',
-  loadChildren: () => import('./features/auth/register/register.module').then( m => m.RegisterPageModule)
+  loadChildren: () => import('./features/auth/register/register.module').then( m => m.RegisterPageModule),
+  canActivate: [guestGuard]
   },
   {
     path: 'recover-password',
-    loadChildren: () => import('./features/auth/recover-password/recover-password.module').then( m => m.RecoverPasswordPageModule)
+    loadChildren: () => import('./features/auth/recover-password/recover-password.module').then( m => m.RecoverPasswordPageModule),
+    canActivate: [guestGuard]
   },
   {
     path: 'select-profile',
-    loadChildren: () => import('./pages/select-profile/select-profile.module').then( m => m.SelectProfilePageModule)
+    loadChildren: () => import('./pages/select-profile/select-profile.module').then( m => m.SelectProfilePageModule),
+    canActivate: [authGuard]
   },
   {
     path: 'message-register',
-    loadChildren: () => import('./pages/message-register/message-register.module').then( m => m.MessageRegisterPageModule)
+    loadChildren: () => import('./pages/message-register/message-register.module').then( m => m.MessageRegisterPageModule),
+    canActivate: [authGuard]
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule),
+    canActivate: [authGuard]
   },
   {
     path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./features/profile/profile.module').then( m => m.ProfilePageModule),
+    canActivate: [authGuard]
   },
   {
     path: 'create-local',
-    loadChildren: () => import('./pages/create-local/create-local.module').then( m => m.CreateLocalPageModule)
-  },  {
-    path: 'chat',
-    loadChildren: () => import('./features/chat/chat.module').then( m => m.ChatPageModule)
+    loadChildren: () => import('./pages/create-local/create-local.module').then( m => m.CreateLocalPageModule),
+    canActivate: [authGuard]
   },
+  {
+    path: 'chat',
+    loadChildren: () => import('./features/chat/chat.module').then( m => m.ChatPageModule),
+    canActivate: [authGuard]
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
+  }
+
 
 
 ];

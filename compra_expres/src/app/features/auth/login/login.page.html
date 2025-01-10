@@ -1,15 +1,12 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Compra Express</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content class="login-page">
   <!-- Logo -->
-
-
-  <!-- Título -->
-  <ion-title class="page-title">Iniciar Sesión</ion-title>
+  <div class="logo-container">
+    <img src="assets/logo.jpg">
+  </div>
+    <!-- Título -->
+    <div class="title-container">
+      <h1 class="app-title">Compra Expres</h1>
+    </div>
 
   <!-- Formulario de Login -->
   <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
@@ -46,7 +43,8 @@
   </form>
 
   <!-- Enlaces de Registro y Recuperar Contraseña -->
-   <ion-button expand="block" color="primary" type="submit" [disabled]="loginForm.invalid">Iniciar Sesión</ion-button> 
+   <ion-button routerLink="/inicio" expand="block" color="primary" type="submit" >Iniciar Sesión</ion-button> 
+  
   
    <ion-label>¿No tienes una cuenta?</ion-label>
     <ion-button routerLink="/register" type="submit" expand="block">Crear cuenta</ion-button>
