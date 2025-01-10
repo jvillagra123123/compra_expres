@@ -1,0 +1,23 @@
+.title-container {
+    margin-bottom: 20px;
+    text-align: center;
+
+  
+        a {
+          color: var(--ion-color-primary);
+          font-weight: bold;
+          cursor: pointer;
+          text-decoration: none;
+        }
+        .title-container {
+            margin-bottom: 20px;
+            text-align: center;
+        
+            .app-title {
+              font-size: 2rem;
+              font-weight: bold;
+              color: var(--ion-color-primary);
+              font-family: 'Pacifico', cursive;
+            }
+          }
+}
