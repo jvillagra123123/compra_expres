@@ -1,0 +1,38 @@
+.title-container {
+    margin-bottom: 20px;
+    text-align: center;
+
+  
+        a {
+          color: var(--ion-color-primary);
+          font-weight: bold;
+          cursor: pointer;
+          text-decoration: none;
+        }
+        
+            .app-title {
+              font-size: 2rem;
+              font-weight: bold;
+              color: var(--ion-color-primary);
+              font-family: 'Pacifico', cursive;
+            }
+          }
+
+          form {
+            width: 100%;
+            max-width: 400px;
+            padding: 0 20px;
+        
+            .input-item {
+              margin-bottom: 20px;
+              --padding-start: 10px;
+            }
+        
+            .error-message {
+              color: #ff3b30;
+              font-size: 12px;
+              margin-top: 4px;
+              padding-left: 16px;
+            }
+          }
+
