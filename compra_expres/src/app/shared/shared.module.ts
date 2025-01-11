@@ -6,6 +6,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { ChatMessageComponent } from './components/chat-message/chat-message.component';
 import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { MenuComponent } from './components/menu/menu.component';
+
 
 
 
@@ -15,12 +17,14 @@ import { LoaderComponent } from './components/loader/loader.component';
     ChatMessageComponent,
     ImageUploaderComponent,
     LoaderComponent,
+    MenuComponent,
   ],
   exports: [
     HeaderComponent,
     ChatMessageComponent,
     ImageUploaderComponent,
     LoaderComponent,
+    MenuComponent,
   ],
   imports: [
     CommonModule,
