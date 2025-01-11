@@ -1,3 +1,10 @@
-<p>
-  header works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="" *ngIf="showBackButton">
+    <ion-buttons (click)="onBack()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-buttons>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>

@@ -5,6 +5,8 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
   selector: 'app-image-uploader',
   templateUrl: './image-uploader.component.html',
   styleUrls: ['./image-uploader.component.scss'],
+  standalone: false,
+
 })
 export class ImageUploaderComponent  {
   imageUrl: string | undefined;

@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(9), // Mínimo 9 caracteres
+          Validators.minLength(6), // Mínimo 6 caracteres
           Validators.maxLength(20), // Máximo 20 caracteres
           Validators.pattern(
             /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@#%!&/])[A-Za-z\d@#%!&/]+$/

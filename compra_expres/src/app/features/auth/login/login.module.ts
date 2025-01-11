@@ -8,13 +8,16 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 
+import { SharedModule } from 'src/app/shared/shared.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    LoginPageRoutingModule
+    LoginPageRoutingModule,
+    SharedModule
   ],
   declarations: [LoginPage]
 })
