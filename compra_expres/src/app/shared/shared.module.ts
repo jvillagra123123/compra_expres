@@ -8,6 +8,7 @@ import { ImageUploaderComponent } from './components/image-uploader/image-upload
 import { LoaderComponent } from './components/loader/loader.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { RouterModule } from '@angular/router';
+import { SearchComponent } from './components/search/search.component';
 
 
 
@@ -19,6 +20,7 @@ import { RouterModule } from '@angular/router';
     ImageUploaderComponent,
     LoaderComponent,
     MenuComponent,
+    SearchComponent,
   ],
   exports: [
     HeaderComponent,
@@ -26,6 +28,7 @@ import { RouterModule } from '@angular/router';
     ImageUploaderComponent,
     LoaderComponent,
     MenuComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,

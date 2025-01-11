@@ -55,9 +55,19 @@ const routes: Routes = [
     canActivate: [authGuard]
   },
   {
+    path: 'search-local',
+    loadChildren: () => import('./pages/search-local/search-local.module').then( m => m.SearchLocalPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'login'
-  }
+  },
+  
+
+  
+
+  
+
 
 
 
