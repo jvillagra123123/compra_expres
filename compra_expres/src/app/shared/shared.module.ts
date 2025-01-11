@@ -7,6 +7,7 @@ import { ChatMessageComponent } from './components/chat-message/chat-message.com
 import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -31,6 +32,7 @@ import { MenuComponent } from './components/menu/menu.component';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
+    RouterModule,
   ]
 })
 export class SharedModule { }
