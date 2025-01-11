@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
+import { Route } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
+
 
 
 @Component({
@@ -23,7 +26,7 @@ export class LoginPage implements OnInit {
           Validators.minLength(9), // Mínimo 9 caracteres
           Validators.maxLength(20), // Máximo 20 caracteres
           Validators.pattern(
-            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#%!&*/])[A-Za-z\d@#%!&*/]+$/
+            /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@#%!&/])[A-Za-z\d@#%!&/]+$/
           ), // Al menos una minúscula, una mayúscula, un número y un carácter especial
         ],
       ],
@@ -37,7 +40,7 @@ export class LoginPage implements OnInit {
       console.log('Login exitoso:', email, password);
       // Aquí podrías llamar a un servicio de autenticación (AuthService) para verificar credenciales.
       // Ejemplo: this.authService.login(email, password).subscribe(...);
-      this.navCtrl.navigateForward('/home'); // Redirige a la página principal (o donde corresponda)
+      this.navCtrl.navigateForward('/inicio'); // Redirige a la página principal (o donde corresponda)
     } else {
       console.log('Formulario inválido');
     }

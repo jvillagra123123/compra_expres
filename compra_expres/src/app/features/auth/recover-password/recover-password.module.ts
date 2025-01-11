@@ -8,12 +8,15 @@ import { RecoverPasswordPageRoutingModule } from './recover-password-routing.mod
 
 import { RecoverPasswordPage } from './recover-password.page';
 
+import { SharedModule } from 'src/app/shared/shared.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RecoverPasswordPageRoutingModule
+    RecoverPasswordPageRoutingModule,
+    SharedModule
   ],
   declarations: [RecoverPasswordPage]
 })
