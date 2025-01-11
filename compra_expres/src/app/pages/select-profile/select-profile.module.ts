@@ -8,12 +8,15 @@ import { SelectProfilePageRoutingModule } from './select-profile-routing.module'
 
 import { SelectProfilePage } from './select-profile.page';
 
+import { SharedModule } from 'src/app/shared/shared.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SelectProfilePageRoutingModule
+    SelectProfilePageRoutingModule,
+    SharedModule,
   ],
   declarations: [SelectProfilePage]
 })
