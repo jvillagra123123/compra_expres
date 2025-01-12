@@ -1,13 +1,67 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>local</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">local</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Imagen del local -->
+  <div class="local-image">
+    <img src="/assets/Localpizza1.jpg" alt="Imagen del local" />
+  </div>
+
+  <!-- Cabecera con Nombre, Clasificación, Dirección y Botón "IR" -->
+  <div class="local-header">
+    <h2 class="local-name">Nombre del Local</h2>
+    <div class="rating">
+      <ion-icon name="star" *ngFor="let star of stars"></ion-icon> <!-- Estrellas -->
+    </div>
+    <p class="local-address">Dirección del Local</p>
+    <ion-button (click)="openMap()">IR</ion-button>
+  </div>
+
+  <!-- Sección de Alimentos -->
+  <div class="food-section">
+    <h3>Pizzas</h3>
+    <!-- Aquí agregas los alimentos de la categoría -->
+    <ul>
+      <li>Pizza 1</li>
+      <li>Pizza 2</li>
+    </ul>
+  </div>
+  <div class="food-section">
+    <h3>Bebidas</h3>
+    <ul>
+      <li>Bebida 1</li>
+      <li>Bebida 2</li>
+    </ul>
+  </div>
+  <div class="food-section">
+    <h3>Palo de Ajo</h3>
+    <ul>
+      <li>Palo de Ajo 1</li>
+      <li>Palo de Ajo 2</li>
+    </ul>
+  </div>
+  <div class="food-section">
+    <h3>Papas Fritas</h3>
+    <ul>
+      <li>Papas Fritas 1</li>
+      <li>Papas Fritas 2</li>
+    </ul>
+  </div>
+
+  <!-- Sección de Comentarios -->
+  <div class="comment-section">
+    <!-- Lista de comentarios (ahora está arriba) -->
+    <div class="comments-list">
+      <div *ngFor="let comment of comments">
+        <p><strong>{{ comment.user }}</strong> ({{ comment.date }}): {{ comment.text }}</p>
+      </div>
+    </div>
+  
+    <!-- Campo de texto para comentario y botón de enviar (ahora están abajo) -->
+    <textarea placeholder="Escribe tu comentario..." [(ngModel)]="newComment"></textarea>
+    <ion-button (click)="submitComment()">Enviar</ion-button>
+  </div>
+  
+
+  <!-- Botón para reportar el local -->
+  <ion-button (click)="reportLocal()">Reportar Local</ion-button>
 </ion-content>

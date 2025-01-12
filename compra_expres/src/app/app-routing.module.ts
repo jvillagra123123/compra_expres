@@ -59,12 +59,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/search-local/search-local.module').then( m => m.SearchLocalPageModule)
   },
   {
-    path: '**',
-    redirectTo: 'login'
-  },  {
     path: 'local',
     loadChildren: () => import('./pages/local/local.module').then( m => m.LocalPageModule)
   },
+  {
+    path: '**',
+    redirectTo: 'login'
+  },
+  
 
   
 

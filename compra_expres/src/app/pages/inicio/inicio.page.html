@@ -1,4 +1,4 @@
-<app-menu title="Registrarse"></app-menu>
+<app-menu></app-menu>
 
 <div class="background-container">
     <img src="/assets/imagemap2.png" class="background-image">
@@ -16,19 +16,19 @@
 
     <!-- Íconos que se muestran u ocultan -->
     <div *ngIf="selectedCategory === 'verificados'">
-      <ion-icon name="location-sharp" class="custom-location-icon"></ion-icon>
-      <ion-icon name="location-sharp" class="custom-location-icon3"></ion-icon>
+      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon"></ion-icon>
+      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon3"></ion-icon>
     </div>
     <div *ngIf="selectedCategory === 'sinVerificar'">
-      <ion-icon name="location-sharp" class="custom-location-icon1"></ion-icon>
-      <ion-icon name="location-sharp" class="custom-location-icon2"></ion-icon>
-      <ion-icon name="location-sharp" class="custom-location-icon4"></ion-icon>
+      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon1"></ion-icon>
+      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon2"></ion-icon>
+      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon4"></ion-icon>
     </div>
     <div *ngIf="selectedCategory === 'all'">
-      <ion-icon routerLink="/login" name="location-sharp" class="custom-location-icon"></ion-icon>
-      <ion-icon routerLink="/login" name="location-sharp" class="custom-location-icon1"></ion-icon>
-      <ion-icon routerLink="/login" name="location-sharp" class="custom-location-icon2"></ion-icon>
-      <ion-icon routerLink="/login" name="location-sharp" class="custom-location-icon3"></ion-icon>
-      <ion-icon routerLink="/login" name="location-sharp" class="custom-location-icon4"></ion-icon>
+      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon"></ion-icon>
+      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon1"></ion-icon>
+      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon2"></ion-icon>
+      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon3"></ion-icon>
+      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon4"></ion-icon>
     </div>
   </div>
