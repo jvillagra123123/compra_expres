@@ -16,8 +16,8 @@ export class RegisterPage {
   constructor(private fb: FormBuilder, private navCtrl: NavController) {
     // Crear el formulario de registro
     this.registerForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      firstName: ['', Validators.required, Validators.minLength(3), Validators.maxLength(20)], // Campo de nombre con validaciones
+      lastName: ['', Validators.required, Validators.minLength(3), Validators.maxLength(20)], // Campo de apellido con validaciones
       email: ['', [Validators.required, Validators.email]],
       password: [
         '',
