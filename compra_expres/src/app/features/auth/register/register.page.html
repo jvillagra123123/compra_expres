@@ -11,6 +11,7 @@
       <ion-label position="floating">Nombre</ion-label>
       <ion-input type="text" formControlName="firstName"></ion-input>
     </ion-item>
+    
     <div class="error-message" *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.invalid">
       El nombre es obligatorio.
     </div>
@@ -20,6 +21,7 @@
       <ion-label position="floating">Apellido</ion-label>
       <ion-input type="text" formControlName="lastName"></ion-input>
     </ion-item>
+   
     <div class="error-message" *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.invalid">
       El apellido es obligatorio.
     </div>
@@ -29,6 +31,7 @@
       <ion-label position="floating">Correo Electrónico</ion-label>
       <ion-input type="email" formControlName="email"></ion-input>
     </ion-item>
+   
     <div class="error-message" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
       Ingresa un correo válido.
     </div>
@@ -38,8 +41,21 @@
       <ion-label position="floating">Contraseña</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
-    <div class="error-message" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+    
+    <div class="error-message" *ngIf="registerForm.get('password')?.errors?.['required'] && registerForm.get('password')?.touched">
+      La contraseña es obligatoria
+    </div>
+
+    <div class="error-message" *ngIf="registerForm.get('password')?.errors?.['minlength'] && registerForm.get('password')?.touched">
       La contraseña debe tener al menos 9 caracteres.
+    </div>
+    
+    <div class="error-message" *ngIf="registerForm.get('password')?.errors?.['maxlength'] && registerForm.get('password')?.touched">
+      La contraseña no puede exceder los 20 caracteres.
+    </div>
+    
+    <div class="error-message" *ngIf="registerForm.get('password')?.errors?.['pattern'] && registerForm.get('password')?.touched">
+      La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.
     </div>
 
     <!-- Confirmación de Contraseña -->
@@ -47,12 +63,29 @@
       <ion-label position="floating">Confirmar Contraseña</ion-label>
       <ion-input type="password" formControlName="confirmPassword"></ion-input>
     </ion-item>
-    <div class="error-message" *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.invalid">
-      Las contraseñas no coinciden.
+    
+    <div class="error-message" *ngIf="registerForm.get('password')?.errors?.['required'] && registerForm.get('password')?.touched">
+      La contraseña es obligatoria
     </div>
 
+    <div class="error-message" *ngIf="registerForm.get('password')?.errors?.['required'] && registerForm.get('password')?.touched">
+      La contraseña es obligatoria
+    </div>
+
+    <div class="error-message" *ngIf="registerForm.get('password')?.errors?.['minlength'] && registerForm.get('password')?.touched">
+      La contraseña debe tener al menos 9 caracteres.
+    </div>
+    
+    <div class="error-message" *ngIf="registerForm.get('password')?.errors?.['maxlength'] && registerForm.get('password')?.touched">
+      La contraseña no puede exceder los 20 caracteres.
+    </div>
+    
+    <div class="error-message" *ngIf="registerForm.get('password')?.errors?.['pattern'] && registerForm.get('password')?.touched">
+      La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.
+    </div>
+    
     <!-- Botón de Registro -->
-    <ion-button expand="block" color="primary" [disabled]="registerForm.invalid">Registrar</ion-button>
+    <ion-button routerLink="/inicio" expand="block" color="primary" [disabled]="registerForm.invalid">Registrar</ion-button>
   </form>
 
 

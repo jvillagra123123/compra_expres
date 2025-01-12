@@ -43,7 +43,7 @@
     </form>
   
     <!-- Enlaces de Registro y Recuperar Contraseña -->
-     <ion-button routerLink="/inicio" expand="block" color="primary" type="submit" >Iniciar Sesión</ion-button> 
+     <ion-button routerLink="/inicio" expand="block" color="primary" type="submit"  [disabled]="loginForm.invalid">Iniciar Sesión</ion-button> 
     
     
      <ion-label>¿No tienes una cuenta?</ion-label>
