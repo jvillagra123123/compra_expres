@@ -61,7 +61,11 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'login'
+  },  {
+    path: 'local',
+    loadChildren: () => import('./pages/local/local.module').then( m => m.LocalPageModule)
   },
+
   
 
   
