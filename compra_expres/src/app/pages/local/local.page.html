@@ -13,7 +13,7 @@
       <ion-icon name="star" *ngFor="let star of stars"></ion-icon> <!-- Estrellas -->
     </div>
     <p class="local-address">Dirección del Local</p>
-    <ion-button (click)="openMap()">IR</ion-button>
+    <ion-button expand="block" routerLink="/inicio" >IR</ion-button>
   </div>
 
   <!-- Sección de Alimentos -->
@@ -58,10 +58,10 @@
   
     <!-- Campo de texto para comentario y botón de enviar (ahora están abajo) -->
     <textarea placeholder="Escribe tu comentario..." [(ngModel)]="newComment"></textarea>
-    <ion-button (click)="submitComment()">Enviar</ion-button>
+    <ion-button expand="block" (click)="submitComment()">Enviar</ion-button>
   </div>
   
 
   <!-- Botón para reportar el local -->
-  <ion-button (click)="reportLocal()">Reportar Local</ion-button>
+  <ion-button expand="block" (click)="reportLocal()">Reportar Local</ion-button>
 </ion-content>
