@@ -5,12 +5,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
   standalone: false,
+
 })
-export class InicioPage implements OnInit {
+export class InicioPage {
+  selectedCategory: string = 'all';
 
-  constructor() { }
-
-  ngOnInit() {
+  selectCategory(category: string) {
+    this.selectedCategory = category;
   }
-
 }
+
+
+

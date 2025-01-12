@@ -10,6 +10,8 @@ import { InicioPage } from './inicio.page';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -20,4 +22,16 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   declarations: [InicioPage]
 })
-export class InicioPageModule {}
+export class InicioPageModule {
+  // Variable que almacena la categoría seleccionada
+  selectedCategory: string = 'all';  // 'all' es la opción por defecto
+
+  // Función para cambiar la categoría seleccionada
+  selectCategory(category: string) {
+    this.selectedCategory = category;
+  }
+}
+
+
+
+

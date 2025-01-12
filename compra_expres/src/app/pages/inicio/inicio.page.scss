@@ -1,0 +1,213 @@
+/* Asegura que el contenedor respete el tamaño del menú */
+.background-container {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 56px); /* Ajusta el espacio restante debajo del menú */
+    margin-top: 0px; /* Altura estimada del menú, ajústalo según sea necesario */
+    overflow: hidden;
+  }
+  
+  /* Imagen de fondo */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  
+  /* Contenido superpuesto */
+.content-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Contenedor para el contenido superpuesto */
+.content-overlay {
+    position: absolute;
+    top: 5%; /* Centrado verticalmente, ajusta este valor para moverlo hacia arriba o abajo */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para centrar el contenido completamente */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Estilo personalizado para el botón */
+.custom-button {
+    width: 100px; /* Ajusta el ancho del botón */
+    height: 5%; /* Ajusta la altura del botón */
+    font-size: 12px; /* Tamaño del texto */
+    background: #f0f0f0; /* Color de fondo */
+    color: #1b1b1b; /* Color del texto */
+    border-radius: 100%; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.2s, background-color 0.2s; /* Transición suave */
+  }
+  
+.custom-button:hover {
+    background-color: #e4e4e4; /* Cambio de color al pasar el ratón */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el ratón */
+  }
+
+  /*-------------------------------------------------------------------------------*/
+  
+  /* Contenido superpuesto */
+.content-overlay1 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Contenedor para el contenido superpuesto */
+.content-overlay1 {
+    position: absolute;
+    top: 5%; /* Centrado verticalmente, ajusta este valor para moverlo hacia arriba o abajo */
+    left: 80%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para centrar el contenido completamente */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Estilo personalizado para el botón */
+.custom-button1 {
+    width: 100px; /* Ajusta el ancho del botón */
+    height: 5%; /* Ajusta la altura del botón */
+    font-size: 12px; /* Tamaño del texto */
+    background: #e0e0e0; /* Color de fondo */
+    color: #1b1b1b; /* Color del texto */
+    border-radius: 100%; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.2s, background-color 0.2s; /* Transición suave */
+  }
+  
+.custom-button1:hover {
+    background-color: #0056b3; /* Cambio de color al pasar el ratón */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el ratón */
+  }
+
+/*-------------------------------------------------------------------------------*/
+  
+
+/* Contenido superpuesto */
+.content-overlay2 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Contenedor para el contenido superpuesto */
+.content-overlay2 {
+    position: absolute;
+    top: 5%; /* Centrado verticalmente, ajusta este valor para moverlo hacia arriba o abajo */
+    left: 20%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para centrar el contenido completamente */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Estilo personalizado para el botón */
+.custom-button2 {
+    width: 100px; /* Ajusta el ancho del botón */
+    height: 5%; /* Ajusta la altura del botón */
+    font-size: 12px; /* Tamaño del texto */
+    background: #e2e2e2; /* Color de fondo */
+    color: #1b1b1b; /* Color del texto */
+    border-radius: 100%; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.2s, background-color 0.2s; /* Transición suave */
+  }
+  
+.custom-button2:hover {
+    background-color: #0056b3; /* Cambio de color al pasar el ratón */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el ratón */
+  }
+
+/*-------------------------------------------------------------------------------*/
+
+.custom-location-icon {
+    position: absolute; /* Cambié a absolute para un control más preciso */
+    top: 80%; /* Centrado verticalmente */
+    left: 60%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el ícono al centro de su contenedor */
+    font-size: 40px; /* Tamaño más grande del ícono */
+    color: #007bff; /* Color del ícono */
+    z-index: 3; /* Asegura que esté encima de otros elementos */
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.custom-location-icon1 {
+    position: absolute; /* Cambié a absolute para un control más preciso */
+    top: 70%; /* Centrado verticalmente */
+    left: 40%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el ícono al centro de su contenedor */
+    font-size: 40px; /* Tamaño más grande del ícono */
+    color: #007bff; /* Color del ícono */
+    z-index: 3; /* Asegura que esté encima de otros elementos */
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.custom-location-icon2 {
+    position: absolute; /* Cambié a absolute para un control más preciso */
+    top: 20%; /* Centrado verticalmente */
+    left: 20%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el ícono al centro de su contenedor */
+    font-size: 40px; /* Tamaño más grande del ícono */
+    color: #007bff; /* Color del ícono */
+    z-index: 3; /* Asegura que esté encima de otros elementos */
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.custom-location-icon3 {
+    position: absolute; /* Cambié a absolute para un control más preciso */
+    top: 80%; /* Centrado verticalmente */
+    left: 60%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el ícono al centro de su contenedor */
+    font-size: 40px; /* Tamaño más grande del ícono */
+    color: #007bff; /* Color del ícono */
+    z-index: 3; /* Asegura que esté encima de otros elementos */
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.custom-location-icon4 {
+    position: absolute; /* Cambié a absolute para un control más preciso */
+    top: 30%; /* Centrado verticalmente */
+    left: 20%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el ícono al centro de su contenedor */
+    font-size: 40px; /* Tamaño más grande del ícono */
+    color: #007bff; /* Color del ícono */
+    z-index: 3; /* Asegura que esté encima de otros elementos */
+}

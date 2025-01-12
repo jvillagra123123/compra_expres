@@ -1,5 +1,34 @@
 <app-menu title="Registrarse"></app-menu>
 
+<div class="background-container">
+    <img src="/assets/imagemap2.png" class="background-image">
 
+    <!-- Botones -->
+    <div class="content-overlay">
+      <ion-button class="custom-button" expand="block" (click)="selectCategory('verificados')">Verificados</ion-button>
+    </div>
+    <div class="content-overlay1">
+        <ion-button class="custom-button1" expand="block" (click)="selectCategory('sinVerificar')">Sin Verificar</ion-button>
+      </div>
+      <div class="content-overlay2">
+        <ion-button class="custom-button2" expand="block" (click)="selectCategory('all')">All</ion-button>
+      </div>
 
-
+    <!-- Íconos que se muestran u ocultan -->
+    <div *ngIf="selectedCategory === 'verificados'">
+      <ion-icon name="location-sharp" class="custom-location-icon"></ion-icon>
+      <ion-icon name="location-sharp" class="custom-location-icon3"></ion-icon>
+    </div>
+    <div *ngIf="selectedCategory === 'sinVerificar'">
+      <ion-icon name="location-sharp" class="custom-location-icon1"></ion-icon>
+      <ion-icon name="location-sharp" class="custom-location-icon2"></ion-icon>
+      <ion-icon name="location-sharp" class="custom-location-icon4"></ion-icon>
+    </div>
+    <div *ngIf="selectedCategory === 'all'">
+      <ion-icon name="location-sharp" class="custom-location-icon"></ion-icon>
+      <ion-icon name="location-sharp" class="custom-location-icon1"></ion-icon>
+      <ion-icon name="location-sharp" class="custom-location-icon2"></ion-icon>
+      <ion-icon name="location-sharp" class="custom-location-icon3"></ion-icon>
+      <ion-icon name="location-sharp" class="custom-location-icon4"></ion-icon>
+    </div>
+  </div>
