@@ -63,9 +63,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/local/local.module').then( m => m.LocalPageModule)
   },
   {
+    path: 'local-verification',
+    loadChildren: () => import('./pages/local-verification/local-verification.module').then( m => m.LocalVerificationPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'login'
   },
+  
   
 
   
