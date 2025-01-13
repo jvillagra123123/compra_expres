@@ -87,7 +87,8 @@
     </div>
     
     <!-- Botón de Registro -->
-    <ion-button routerLink="/inicio" expand="block" color="primary" [disabled]="registerForm.invalid">Registrar</ion-button>
+    <ion-button routerLink="/inicio" expand="block" color="primary" [disabled]="registerForm.invalid" (click)="onRegister()">Registrar</ion-button>
+    <!-- <app-alert-regis></app-alert-regis> -->
   </form>
 
 

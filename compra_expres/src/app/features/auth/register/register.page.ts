@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
-import { Route } from '@angular/router';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { AlertController } from '@ionic/angular'; // Agregar AlertController
 
 @Component({
   selector: 'app-register',
@@ -10,29 +9,41 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./register.page.scss'],
   standalone: false,
 })
-export class RegisterPage {
+export class RegisterPage implements OnInit {
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private navCtrl: NavController) {
+  constructor(
+    private fb: FormBuilder,
+    private navCtrl: NavController,
+    private alertController: AlertController  // Inyectar AlertController
+  ) {
     // Crear el formulario de registro
-    this.registerForm = this.fb.group({
-      firstName: ['', Validators.required, Validators.minLength(3), Validators.maxLength(20)], // Campo de nombre con validaciones
-      lastName: ['', Validators.required, Validators.minLength(3), Validators.maxLength(20)], // Campo de apellido con validaciones
-      email: ['', [Validators.required, Validators.email]],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(9), // Mínimo 9 caracteres
-          Validators.maxLength(20), // Máximo 20 caracteres
-          Validators.pattern(
-            /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@#%!&/])[A-Za-z\d@#%!&/]+$/
-          ), // Al menos una minúscula, una mayúscula, un número y un carácter especial
+    this.registerForm = this.fb.group(
+      {
+        firstName: [
+          '',
+          [Validators.required, Validators.minLength(3), Validators.maxLength(20)],
         ],
-      ],
-
-      confirmPassword: ['', Validators.required],
-    }, { validator: this.passwordMatchValidator });
+        lastName: [
+          '',
+          [Validators.required, Validators.minLength(3), Validators.maxLength(20)],
+        ],
+        email: ['', [Validators.required, Validators.email]],
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(9),
+            Validators.maxLength(20),
+            Validators.pattern(
+              /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#%!&/])[A-Za-z\d@#%!&/]+$/
+            ),
+          ],
+        ],
+        confirmPassword: ['', Validators.required],
+      },
+      { validator: this.passwordMatchValidator }
+    );
   }
 
   // Validador para confirmar contraseñas
@@ -43,26 +54,31 @@ export class RegisterPage {
   }
 
   // Método para registrar al usuario
-  onRegister() {
+  async onRegister() {
     if (this.registerForm.valid) {
       const { firstName, lastName, email, password } = this.registerForm.value;
       console.log('Registro:', { firstName, lastName, email, password });
-      // Llamar al servicio de registro (AuthService)
-      this.navCtrl.navigateForward('/select-profile');
+
+      // Muestra la alerta de éxito
+      await this.showRegisterAlert();
     }
   }
 
-  // Navegar a la pagina de login
+  // Método para mostrar la alerta
+  async showRegisterAlert() {
+    const alert = await this.alertController.create({
+      header: '¡Cuenta creada con éxito!',
+      message: 'Tu cuenta se ha creado correctamente.',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  // Navegar a la página de login
   goToLogin() {
     this.navCtrl.navigateBack('/login');
   }
 
-   // Navegar a la pagina de select-profile
-   goToSelectProfile(){
-    this.navCtrl.navigateForward('/select-profile');
-   }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

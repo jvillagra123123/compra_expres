@@ -10,6 +10,10 @@ import { RegisterPage } from './register.page';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 
+
+
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,8 +21,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ReactiveFormsModule,
     IonicModule,
     RegisterPageRoutingModule,
-    SharedModule
+    SharedModule,
   ],
-  declarations: [RegisterPage]
+  declarations: [RegisterPage] // Agrega el componente aquí
 })
 export class RegisterPageModule {}
