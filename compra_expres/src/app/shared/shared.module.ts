@@ -10,7 +10,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { SearchComponent } from './components/search/search.component';
 import { AlertComponent } from './components/alert/alert.component';
-
+import { AlertRegisComponent } from './components/alert-regis/alert-regis.component';
 
 
 
@@ -23,6 +23,7 @@ import { AlertComponent } from './components/alert/alert.component';
     MenuComponent,
     SearchComponent,
     AlertComponent,
+    AlertRegisComponent,
 
   ],
   exports: [
@@ -33,6 +34,7 @@ import { AlertComponent } from './components/alert/alert.component';
     MenuComponent,
     SearchComponent,
     AlertComponent,
+    AlertRegisComponent,
 
   ],
   imports: [
