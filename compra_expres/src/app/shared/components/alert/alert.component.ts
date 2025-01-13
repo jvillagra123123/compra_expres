@@ -21,9 +21,6 @@ export class AlertComponent {
 
   public alertInputs = [
     {
-      placeholder: 'Nombre del Local',
-    },
-    {
       type: 'textarea',
       placeholder: 'Motivo del Reporte',
     },
