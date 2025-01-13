@@ -1,15 +1,25 @@
 <app-header title="Seleccionar perfil"></app-header>
-
 <ion-content>
-  <form>
-    <ion-item>
-      <ion-button type="sumit" expand="block">Explorar Comida</ion-button>
-    </ion-item>
-    <ion-text>Descubre y encuentra los mejores puestos de comida cerca de ti. Explora opciones, realiza pedidos, y comparte tu opinión sobre tus experiencias gastronómicas.</ion-text>
-    <br>
-    <ion-item>
-      <ion-button type="sumit" expand="block">Gestionar Local</ion-button>
-    </ion-item>
-    <ion-text>Registra tu puesto de comida, hazlo visible en el mapa y gestiona pedidos para que los clientes puedan disfrutar de tus platillos.</ion-text>
-  </form>
+  <div class="profile-container">
+
+    <!-- Opción 1 -->
+    <div class="profile-option">
+      <ion-button class="btn" type="submit" expand="block">Explorar Comida</ion-button>
+      <p class="description">
+        Descubre y encuentra los mejores puestos de comida cerca de ti. Explora opciones, realiza pedidos, y comparte tu opinión sobre tus experiencias gastronómicas.
+      </p>
+    </div>
+
+    <!-- Separador -->
+    <div class="separator"></div>
+
+    <!-- Opción 2 -->
+    <div class="profile-option">
+      <ion-button class="btn" type="submit" expand="block">Gestionar Local</ion-button>
+      <p class="description">
+        Registra tu puesto de comida, hazlo visible en el mapa y gestiona pedidos para que los clientes puedan disfrutar de tus platillos.
+      </p>
+    </div>
+
+  </div>
 </ion-content>

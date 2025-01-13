@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif; /* Establece la tipografía principal de la página */
+    margin: 0; /* Elimina los márgenes predeterminados alrededor del cuerpo */
+    padding: 0; /* Elimina los rellenos predeterminados alrededor del cuerpo */
+    background-color: #f9f9f9; /* Establece un color de fondo claro para toda la página */
+    color: #333; /* Define el color del texto principal */
+}
+
+.profile-container {
+    display: flex; /* Utiliza Flexbox para la distribución de elementos */
+    flex-direction: column; /* Organiza los elementos dentro del contenedor de forma vertical */
+    align-items: center; /* Centra los elementos en el eje horizontal */
+    justify-content: center; /* Centra los elementos en el eje vertical */
+    padding: 20px; /* Añade un relleno de 20px dentro del contenedor */
+    gap: 20px; /* Añade un espacio de 20px entre los elementos */
+}
+
+.profile-option {
+    width: 100%; /* Hace que el contenedor de la opción ocupe todo el ancho disponible */
+    max-width: 400px; /* Limita el ancho máximo del contenedor a 400px */
+    background-color: #e2e2e2; /* Establece un fondo blanco para las opciones */
+    border-radius: 8px; /* Redondea las esquinas del contenedor */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra sutil para dar un efecto de profundidad */
+    padding: 15px; /* Añade un relleno de 15px dentro del contenedor */
+    text-align: center; /* Centra el texto dentro del contenedor */
+}
+
+.profile-option .btn {
+    --background: #4caf50; /* Establece el color de fondo del botón */
+    --background-hover: #45a047; /* Establece el color de fondo cuando el botón es hovered */
+    --color: white; /* Define el color del texto del botón como blanco */
+    --padding-start: 16px; /* Define el relleno de inicio del botón */
+    --padding-end: 16px; /* Define el relleno final del botón */
+    font-size: 16px; /* Define el tamaño de la fuente del botón */
+    margin-bottom: 10px; /* Añade un margen inferior de 10px */
+    width: 100%; /* Hace que el botón ocupe todo el ancho del contenedor */
+}
+
+.description {
+    font-size: 14px; /* Establece un tamaño de fuente pequeño para las descripciones */
+    line-height: 1.5; /* Aumenta la altura de línea para mejorar la legibilidad */
+    color: #313131; /* Establece un color gris para el texto de la descripción */
+}
+
+.separator {
+    width: 80%; /* Define el ancho de la línea separadora al 80% del ancho del contenedor */
+    height: 3px; /* Establece un grosor de 2px para la línea */
+    background-color: #bbbbbb; /* Establece un color gris claro para la línea */
+    margin: 100px 0; /* Añade márgenes superior e inferior de 20px */
+}
+
+ion-content {
+    --padding-top: 20px; /* Añade un relleno superior de 20px al contenido */
+    --padding-bottom: 20px; /* Añade un relleno inferior de 20px al contenido */
+    display: flex; /* Utiliza Flexbox para la distribución del contenido */
+    flex-direction: column; /* Organiza los elementos dentro del contenido de forma vertical */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: flex-start; /* Alinea los elementos en la parte superior */
+}
