@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';  // Importa NavController
+import { AlertController } from '@ionic/angular';  // Importa AlertController
 
 @Component({
   selector: 'app-local',
@@ -14,7 +16,6 @@ export class LocalPage implements OnInit {
     { user: 'Usuario 2', date: '2025-01-10', text: 'Muy buena comida.' },
   ];
 
-  constructor() {}
 
   ngOnInit() {}
 
@@ -33,10 +34,5 @@ export class LocalPage implements OnInit {
       this.comments.push(newCommentData);
       this.newComment = ''; // Limpiar el campo de comentario
     }
-  }
-
-  reportLocal() {
-    // Lógica para reportar el local
-    console.log('Reportar local');
   }
 }

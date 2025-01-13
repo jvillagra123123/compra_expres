@@ -9,6 +9,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { SearchComponent } from './components/search/search.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 
 
@@ -21,6 +22,8 @@ import { SearchComponent } from './components/search/search.component';
     LoaderComponent,
     MenuComponent,
     SearchComponent,
+    AlertComponent,
+
   ],
   exports: [
     HeaderComponent,
@@ -29,6 +32,8 @@ import { SearchComponent } from './components/search/search.component';
     LoaderComponent,
     MenuComponent,
     SearchComponent,
+    AlertComponent,
+
   ],
   imports: [
     CommonModule,
