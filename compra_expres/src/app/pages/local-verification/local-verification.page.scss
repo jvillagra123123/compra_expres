@@ -57,5 +57,11 @@
     margin: 8px 0;
   }
 
-  
+  .icon-overlay {
+    position: absolute; /* Posiciona el ícono en relación al contenedor */
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    left: 10px; /* Ajusta la distancia desde la izquierda */
+    font-size: 24px; /* Tamaño del ícono */
+    color: green; /* Color del ícono */
+  }
   

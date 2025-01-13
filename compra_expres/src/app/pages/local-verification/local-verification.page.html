@@ -3,8 +3,11 @@
 <ion-content [fullscreen]="true">
   <!-- Imagen del local -->
   <div class="local-image">
-    <img src="/assets/Local2v.jpg" alt="Imagen del local" />
+    <img src="/assets/Local2v.jpg" alt="Imagen del local" /> 
+    <ion-icon name="checkmark-circle" class="icon-overlay"></ion-icon>
   </div>
+
+  
 
   
 
@@ -12,8 +15,9 @@
   <div class="local-header">
     <h2 class="local-name">Nombre del Local</h2>
     <div class="rating">
-      <ion-icon name="star" *ngFor="let star of stars"></ion-icon> <!-- Estrellas -->
+      <ion-icon name="star" *ngFor="let star of stars"></ion-icon> <!-- Estrellas -->   
     </div>
+    <ion-icon name="checkmark-circle"></ion-icon>
     <p class="local-address">Dirección del Local</p>
     <ion-button expand="block" routerLink="/inicio" >IR</ion-button>
   </div>
@@ -67,3 +71,4 @@
   <!-- Botón para reportar el local -->
   <app-alert></app-alert>
 </ion-content>
+
