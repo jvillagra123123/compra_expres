@@ -10,16 +10,12 @@ import { IonSearchbar } from '@ionic/angular/standalone';
 })
 export class SearchComponent  implements OnInit {
   public data = [
-    'Amsterdam',
-    'Buenos Aires',
-    'Cairo',
-    'Geneva',
-    'Hong Kong',
-    'Istanbul',
-    'London',
-    'Madrid',
-    'New York',
-    'Panama City',
+    'Doña Clara',
+    'Donde Raul',
+    'Delicias!!!!',
+    'DeSabores',
+    'DalDog',
+    'DGregori',
   ];
   public results = [...this.data];
 

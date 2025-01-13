@@ -8,12 +8,15 @@ import { LocalVerificationPageRoutingModule } from './local-verification-routing
 
 import { LocalVerificationPage } from './local-verification.page';
 
+import { SharedModule } from 'src/app/shared/shared.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LocalVerificationPageRoutingModule
+    LocalVerificationPageRoutingModule,
+    SharedModule
   ],
   declarations: [LocalVerificationPage]
 })
