@@ -1,77 +1,89 @@
-  .register-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    background-color: #f5f5f5; /* Fondo claro */
-  }
-  
-  .title-container {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .app-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: #4A90E2; /* Azul primario */
-  }
-  
-  .form-container form {
-    width: 100%;
-    max-width: 400px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .input-item {
-    margin-bottom: 16px;
-    --background: #d3d3d3; /* Fondo gris claro para inputs */
-    --border-radius: 25px; /* Bordes redondeados */
-    --highlight-color-focused: #4A90E2; /* Resaltar en azul */
-  }
-  
-  .input-item ion-label {
-    color: #000; /* Texto negro */
-    font-size: 14px;
-  }
-  
-  .input-item ion-input {
-    padding: 12px 16px;
-    font-size: 16px;
-  }
-  
-  .error-message {
-    color: #E74C3C; /* Rojo para errores */
-    font-size: 12px;
-    margin-top: -8px;
-    margin-bottom: 10px;
-  }
-  
-  ion-button {
-    width: 100%;
-    margin-top: 20px;
-    --background: #ff4400; /* Azul primario */
-    --color: #fff; /* Texto blanco */
-    --border-radius: 25px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .links-container {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .links-container a {
-    color: #FF4500; /* Azul primario */
-    text-decoration: none;
-  }
-  
-  .links-container a:hover {
-    text-decoration: underline;
-  }
+/* Página de registro */
+.register-page {
+  display: flex; /* Disposición flexible. */
+  flex-direction: column; /* Elementos en columna. */
+  justify-content: center; /* Centrado vertical. */
+  align-items: center; /* Centrado horizontal. */
+  min-height: 100vh; /* Altura mínima de la página. */
+  padding: 20px; /* Espaciado interno. */
+  background-color: #F5F5F5; /* Fondo gris claro para diferenciar áreas. */
+}
 
+/* Contenedor del título principal */
+.title-container {
+  text-align: center; /* Centrado del texto. */
+  margin-bottom: 20px; /* Espaciado inferior. */
+}
+
+/* Título de la aplicación */
+.app-title {
+  font-size: 28px; /* Tamaño del texto. */
+  font-weight: bold; /* Negrita para destacar. */
+  color: #007BFF; /* Azul claro para representar confianza. */
+}
+
+/* Contenedor del formulario */
+.form-container form {
+  width: 100%; /* Ancho completo disponible. */
+  max-width: 400px; /* Ancho máximo del formulario. */
+  background: #FFFFFF; /* Fondo blanco puro. */
+  padding: 20px; /* Espaciado interno del formulario. */
+  border-radius: 12px; /* Bordes redondeados. */
+}
+
+/* Estilo para los campos de entrada */
+.input-item {
+  margin-bottom: 16px; /* Espaciado inferior entre campos. */
+  --border-radius: 25px; /* Bordes redondeados. */
+  --highlight-color-focused: #007BFF; /* Resaltar borde en azul claro al enfocar. */
+}
+
+.input-item ion-label {
+  color: #333333; /* Negro suave para el texto de las etiquetas. */
+  font-size: 14px; /* Tamaño del texto de las etiquetas. */
+  text-align: center;
+}
+
+.input-item ion-input {
+  padding: 12px 16px; /* Espaciado interno de los inputs. */
+  font-size: 16px; /* Tamaño del texto dentro de los inputs. */
+  border: 1px solid #DDDDDD; /* Borde gris claro. */
+  border-radius: 25px; /* Bordes redondeados. */
+}
+
+/* Mensaje de error */
+.error-message {
+  color: #FF0000; /* Rojo brillante para errores. */
+  font-size: 12px; /* Tamaño reducido para mensajes de error. */
+  margin-top: -8px; /* Ajuste de espaciado superior. */
+  margin-bottom: 10px; /* Espaciado inferior. */
+}
+
+/* Botón de acción */
+ion-button {
+  width: 100%; /* Ancho completo. */
+  margin-top: 20px; /* Espaciado superior. */
+  --background: #FF6F00; /* Naranja suave para dinamismo. */
+  --color: #FFFFFF; /* Texto blanco. */
+  --border-radius: 25px; /* Bordes redondeados. */
+}
+
+ion-button:hover {
+  background-color: #FF8C00; /* Naranja más claro al pasar. */
+}
+
+/* Contenedor de enlaces secundarios */
+.links-container {
+  text-align: center; /* Centrado del texto. */
+  margin-top: 20px; /* Espaciado superior. */
+}
+
+/* Enlaces secundarios */
+.links-container a {
+  color: #FF6F00; /* Naranja suave para enlaces destacados. */
+  text-decoration: none; /* Sin subrayado inicial. */
+}
+
+.links-container a:hover {
+  text-decoration: underline; /* Subrayado al pasar sobre el enlace. */
+}

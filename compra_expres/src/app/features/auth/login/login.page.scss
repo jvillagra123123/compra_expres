@@ -1,84 +1,96 @@
+/* Contenedor principal */
 .login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+  display: flex; /* Organización flexible. */
+  flex-direction: column; /* Elementos en columna. */
+  align-items: center; /* Centrado horizontal. */
+  padding: 20px; /* Espaciado interno. */
+  background-color: #FFFFFF; /* Fondo blanco puro. */
 }
 
+/* Título de la aplicación */
 .app-title {
-  color: #4A90E2;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 40px;
+  color: #007BFF; /* Azul claro para transmitir confianza. */
+  font-size: 24px; /* Tamaño del texto. */
+  font-weight: bold; /* Negrita para destacar. */
+  margin-bottom: 40px; /* Espaciado inferior. */
 }
 
+/* Título de la sección de inicio de sesión */
 .login-title {
-  color: #000;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 20px;
+  color: #333333; /* Negro suave para texto principal. */
+  font-size: 20px; /* Tamaño del texto. */
+  font-weight: 600; /* Seminegrita. */
+  margin-bottom: 20px; /* Espaciado inferior. */
 }
 
+/* Contenedor del formulario */
 .form-container {
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
+  width: 100%; /* Ancho completo disponible. */
+  max-width: 400px; /* Ancho máximo limitado. */
+  text-align: center; /* Centrado del texto. */
 }
 
+/* Grupos de entrada */
 .input-group {
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Espaciado entre campos. */
 }
 
 .input-group label {
-  display: block;
-  font-size: 14px;
-  margin-bottom: 5px;
-  text-align: left;
+  display: block; /* Bloque completo. */
+  font-size: 14px; /* Tamaño del texto del label. */
+  margin-bottom: 5px; /* Espaciado inferior. */
+  text-align: left; /* Alineación izquierda. */
+  color: #333333; /* Negro suave para texto principal. */
 }
 
 .input-group input {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 25px;
-  background-color: #f0f0f0;
-  outline: none;
+  width: 100%; /* Ancho completo. */
+  padding: 10px; /* Espaciado interno. */
+  font-size: 16px; /* Tamaño del texto. */
+  border: 1px solid #DDDDDD; /* Borde gris suave. */
+  border-radius: 25px; /* Bordes redondeados. */
+  background-color: #F5F5F5; /* Fondo gris claro. */
+  outline: none; /* Sin contorno. */
 }
 
+/* Botón de inicio de sesión */
 .login-button {
-  width: 100%;
-  padding: 15px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 25px;
-  cursor: pointer;
-  margin-bottom: 20px;
+  width: 100%; /* Ancho completo. */
+  padding: 15px; /* Espaciado interno. */
+  font-size: 16px; /* Tamaño del texto. */
+  font-weight: bold; /* Texto en negrita. */
+  color: #FF6F00; /* Naranja suave para texto destacado. */
+  background-color: #FFFFFF; /* Fondo blanco. */
+  border: 1px solid #DDDDDD; /* Borde gris claro. */
+  border-radius: 25px; /* Bordes redondeados. */
+  cursor: pointer; /* Manito al pasar. */
+  margin-bottom: 20px; /* Espaciado inferior. */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil. */
 }
 
 .login-button:hover {
-  background-color: #f8f8f8;
+  background-color: #F8F8F8; /* Fondo más claro al pasar. */
 }
 
+/* Enlaces secundarios */
 .forgot-password,
 .create-account {
-  display: block;
-  font-size: 14px;
-  color: #FF4500;
-  text-decoration: none;
-  margin-bottom: 10px;
+  display: block; /* Bloque completo. */
+  font-size: 14px; /* Tamaño del texto. */
+  color: #FF6F00; /* Naranja suave para enlaces. */
+  text-decoration: none; /* Sin subrayado. */
+  margin-bottom: 10px; /* Espaciado inferior. */
 }
 
 .forgot-password:hover,
 .create-account:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Subrayado al pasar. */
 }
 
+/* Mensajes de error */
 .error-message {
-  color: #E74C3C;
-  font-size: 12px;
-  margin-top: -8px;
-  margin-bottom: 10px;
+  color: #FF0000; /* Rojo brillante para alertas y errores. */
+  font-size: 12px; /* Tamaño reducido. */
+  margin-top: -8px; /* Ajuste superior. */
+  margin-bottom: 10px; /* Espaciado inferior. */
 }
