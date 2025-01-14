@@ -26,16 +26,27 @@ export class AdminPage implements OnInit {
     // Simulación de datos de citas
     this.citas = [
       {
-        cliente: 'Luis Troncoso',
-        fecha: '2025-01-11',
-        hora: '15:00',
-        piercing: 'Aro de nariz',
+        Local: 'Doña Clara',
+        Fecha: '2025-01-11',
+        Estrellas: '*****',
+        Direccion: 'Calle Padre Damián Deveuster, 01779',
+        Comentario: 'Excelente atención y servicio.',
       },
       {
-        cliente: 'Patricio Rodríguez',
-        fecha: '2025-01-12',
-        hora: '16:30',
-        piercing: 'Piercing en la ceja',
+        Local: 'Patricio Rodríguez',
+        Fecha: '2025-01-12',
+        Estrellas: '*****',
+        Direccion: 'Carnot 937, Santiago, Providencia',
+        Comentario: 'Excelente atención y servicio.',
+        
+      },
+      {
+        Local: '',
+        Fecha: '',
+        Estrellas: '',
+        Direccion: '',
+        Comentario: '',
+        
       },
     ];
 
@@ -64,16 +75,19 @@ export class AdminPage implements OnInit {
 
   async agregarPiercing() {
     if (this.piercingForm.valid && this.imagenSeleccionada) {
-      const nuevoPiercing = {
-        nombre: this.piercingForm.value.nombre,
-        precio: this.piercingForm.value.precio,
-        imagen: this.imagenSeleccionada.name, // Solo simula el nombre de la imagen
+      const nuevoLocal = {
+        Local: this.piercingForm.value.nombre,
+        Fecha: new Date().toISOString().split('T')[0], // Fecha actual
+        Estrellas: '*****', // Puedes ajustar este valor según tu lógica
+        Direccion: this.piercingForm.value.direccion || 'Sin dirección',
+        Comentario: 'Nuevo local añadido por el administrador.',
       };
-
-      // Aquí puedes guardar el piercing en la base de datos o una API
-      console.log('Piercing agregado:', nuevoPiercing);
-
-      this.showToast('Piercing agregado correctamente.');
+  
+      // Agregar el nuevo local al arreglo de citas
+      this.citas.push(nuevoLocal);
+  
+      // Mensaje de confirmación
+      this.showToast('Local agregado correctamente.');
       this.piercingForm.reset();
       this.imagenSeleccionada = null;
     } else {
@@ -83,6 +97,7 @@ export class AdminPage implements OnInit {
       );
     }
   }
+  
 
   cerrarSesion() {
     this.router.navigate(['/login']); // Redirigir al login
