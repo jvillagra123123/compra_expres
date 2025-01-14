@@ -1,74 +1,77 @@
-.login-page {
-    --background: #f9f9f9; /* Define un color de fondo claro como una variable CSS reutilizable */
-    display: flex; /* Aplica un diseño de caja flexible para organizar elementos hijos */
-    flex-direction: column; /* Ordena los elementos hijos en una columna (de arriba a abajo) */
-    align-items: center; /* Centra horizontalmente los elementos dentro del contenedor */
-    justify-content: center; /* Centra verticalmente los elementos dentro del contenedor */
-    height: 100%; /* Define la altura como el 100% del contenedor padre */
-  
-    .logo-container {
-      margin-top: 50px; /* Agrega un espacio superior de 50 píxeles */
-      margin-bottom: 30px; /* Agrega un espacio inferior de 30 píxeles */
-  
-      .app-logo {
-        width: 150px; /* Establece un ancho fijo de 150 píxeles para el logo */
-        height: auto; /* Ajusta la altura automáticamente para mantener las proporciones */
-      }
-    }
-  
-    form {
-      width: 100%; /* Hace que el formulario ocupe todo el ancho disponible */
-      max-width: 400px; /* Limita el ancho máximo del formulario a 400 píxeles */
-      padding: 0 20px; /* Aplica un relleno de 20 píxeles en los lados izquierdo y derecho */
-  
-      .input-item {
-        margin-bottom: 20px; /* Añade un espacio inferior de 20 píxeles entre los campos */
-        --padding-start: 10px; /* Define un relleno inicial de 10 píxeles como una variable */
-        color: #000000;
-      }
-  
-      .error-message {
-        color: #ff3b30; /* Utiliza un color rojo para destacar los mensajes de error */
-        font-size: 12px; /* Define un tamaño de fuente pequeño para los mensajes de error */
-        margin-top: 4px; /* Añade un espacio superior de 4 píxeles */
-        padding-left: 16px; /* Agrega un relleno izquierdo de 16 píxeles */
-      }
-    }
-  
-    ion-button {
-      margin-top: 20px; /* Añade un espacio superior de 20 píxeles al botón */
-      width: calc(100% - 40px); /* Calcula el ancho como el 100% menos 40 píxeles */
-      max-width: 400px; /* Limita el ancho máximo del botón a 400 píxeles */
-      --border-radius: 20px; /* Redondea las esquinas del botón con un radio de 20 píxeles */
-      --background: var(--ion-color-primary); /* Utiliza el color primario definido en las variables */
-    }
-  
-    .links-container {
-      margin-top: 20px; /* Agrega un espacio superior de 20 píxeles */
-      text-align: center; /* Centra horizontalmente el texto dentro del contenedor */
-  
-      p {
-        font-size: 14px; /* Establece un tamaño de fuente de 14 píxeles para los párrafos */
-        margin: 5px 0; /* Aplica márgenes de 5 píxeles arriba y abajo */
-      }
-  
-      a {
-        color: var(--ion-color-primary); /* Utiliza el color primario definido como variable */
-        font-weight: bold; /* Aplica un estilo de negrita al texto del enlace */
-        cursor: pointer; /* Cambia el cursor a un puntero al pasar sobre el enlace */
-        text-decoration: none; /* Elimina subrayados predeterminados en los enlaces */
-      }
-    }
-    
-    .title-container {
-        margin-bottom: 20px; /* Agrega un espacio inferior de 20 píxeles */
-        text-align: center; /* Centra horizontalmente el texto del título */
-    
-        .app-title {
-          font-size: 2rem; /* Define un tamaño de fuente grande (2 rem) */
-          font-weight: bold; /* Aplica un estilo de negrita al título */
-          color: var(--ion-color-primary); /* Aplica el color primario definido como variable */
-          font-family: 'Pacifico', cursive; /* Utiliza la fuente 'Pacifico' con estilo cursivo */
-        }
-    }
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.app-title {
+  color: #4A90E2;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.login-title {
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: #f0f0f0;
+  outline: none;
+}
+
+.login-button {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.login-button:hover {
+  background-color: #f8f8f8;
+}
+
+.forgot-password,
+.create-account {
+  display: block;
+  font-size: 14px;
+  color: #FF4500;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.forgot-password:hover,
+.create-account:hover {
+  text-decoration: underline;
 }

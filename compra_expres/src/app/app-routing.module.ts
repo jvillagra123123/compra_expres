@@ -67,9 +67,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/local-verification/local-verification.module').then( m => m.LocalVerificationPageModule)
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./features/auth/admin/admin.module').then( m => m.AdminPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'login'
   },
+  
   
   
 

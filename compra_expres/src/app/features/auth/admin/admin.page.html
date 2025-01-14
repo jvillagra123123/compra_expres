@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Administrador</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="admin-container">
+    <!-- Gestión de Agendas -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Gestión de Agendas</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div *ngIf="citas.length > 0; else noCitas">
+          <ion-list>
+            <ion-item *ngFor="let cita of citas">
+              <ion-label>
+                <h2>Cliente: {{ cita.cliente }}</h2>
+                <p>Fecha: {{ cita.fecha }}</p>
+                <p>Hora: {{ cita.hora }}</p>
+                <p>Piercing: {{ cita.piercing }}</p>
+              </ion-label>
+              <ion-button color="success" (click)="aceptarCita(cita)">Aceptar</ion-button>
+              <ion-button color="danger" (click)="rechazarCita(cita)">Rechazar</ion-button>
+            </ion-item>
+          </ion-list>
+        </div>
+        <ng-template #noCitas>
+          <p>No hay citas pendientes.</p>
+        </ng-template>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Agregar Nuevo Piercing -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Agregar Nuevo Piercing</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="piercingForm" (ngSubmit)="agregarPiercing()">
+          <ion-item>
+            <ion-label position="stacked">Nombre</ion-label>
+            <ion-input formControlName="nombre" placeholder="Nombre del piercing"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Precio (CLP)</ion-label>
+            <ion-input
+              type="number"
+              formControlName="precio"
+              placeholder="Precio en CLP"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Imagen</ion-label>
+            <ion-input
+              type="file"
+              (change)="onFileSelected($event)"
+              accept="image/*"
+            ></ion-input>
+          </ion-item>
+          <ion-button expand="block" type="submit" color="primary">
+            Agregar Piercing
+          </ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" color="danger" (click)="cerrarSesion()">
+      Cerrar Sesión
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NavController } from '@ionic/angular';
-import { Route } from '@angular/router';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular'; // Importar el ToastController
 
 @Component({
   selector: 'app-login',
@@ -11,47 +10,97 @@ import { AuthService } from 'src/app/core/services/auth.service';
   standalone: false,
 })
 export class LoginPage implements OnInit {
-  public loginForm: FormGroup;
+  loginForm!: FormGroup;
+  errorMessage: string = '';
+  showPassword: boolean = false;
 
-  constructor(private fb: FormBuilder, private navCtrl: NavController) {
-    // Configuración del formulario reactivo
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private toastController: ToastController
+  ) {}
+
+  ngOnInit() {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]], // Campo de correo con validaciones
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email,
+          Validators.maxLength(40),
+        ],
+      ],
       password: [
         '',
         [
           Validators.required,
-          Validators.minLength(6), // Mínimo 6 caracteres
-          Validators.maxLength(20), // Máximo 20 caracteres
+          Validators.minLength(8),
+          Validators.maxLength(12),
         ],
       ],
     });
   }
 
-  // Maneja el inicio de sesión
-  onLogin() {
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
+  async iniciarSesion() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
-      console.log('Login exitoso:', email, password);
-      // Aquí podrías llamar a un servicio de autenticación (AuthService) para verificar credenciales.
-      // Ejemplo: this.authService.login(email, password).subscribe(...);
-      this.navCtrl.navigateForward('/inicio'); // Redirige a la página principal (o donde corresponda)
+
+      // Credenciales de usuario normal
+      const userEmail = 'lui.troncoso@duocuc.cl';
+      const userPassword = 'Luis1234';
+
+      // Credenciales de administrador
+      const adminEmail = 'admin@duocuc.cl';
+      const adminPassword = 'Admin1234';
+
+      if (email === userEmail && password === userPassword) {
+        this.errorMessage = '';
+        await this.showToast('¡Inicio de sesión exitoso como usuario!');
+        this.router.navigate(['/inicio']); // Cambiar a la página de inicio de usuario
+      } else if (email === adminEmail && password === adminPassword) {
+        this.errorMessage = '';
+        await this.showToast('¡Inicio de sesión exitoso como administrador!');
+        this.router.navigate(['/admin']); // Cambiar a la página de administrador
+      } else {
+        this.errorMessage = 'Correo o contraseña incorrectos.';
+      }
     } else {
-      console.log('Formulario inválido');
+      this.displayErrors();
     }
   }
 
-  // Navega a la página de registro
-  goToRegister() {
-    this.navCtrl.navigateForward('/register');
+  async showToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000, // El toast se mostrará por 2 segundos
+      position: 'bottom',
+      color: 'success', // Cambiar a 'danger' si es un mensaje de error
+    });
+    toast.present();
   }
 
-  // Navega a la página de recuperación de contraseña
-  goToRecoverPassword() {
-    this.navCtrl.navigateForward('/recover-password');
-  }
-
-  ngOnInit() {
-    // Código adicional que quieras ejecutar al inicializar el componente
+  displayErrors() {
+    const errors = this.loginForm.controls;
+    if (errors['email'].errors) {
+      if (errors['email'].errors['required']) {
+        this.errorMessage = 'El correo es obligatorio.';
+      } else if (errors['email'].errors['email']) {
+        this.errorMessage = 'El formato del correo no es válido.';
+      } else if (errors['email'].errors['maxlength']) {
+        this.errorMessage = 'El correo no debe exceder 40 caracteres.';
+      }
+    } else if (errors['password'].errors) {
+      if (errors['password'].errors['required']) {
+        this.errorMessage = 'La contraseña es obligatoria.';
+      } else if (errors['password'].errors['minlength']) {
+        this.errorMessage = 'La contraseña debe tener al menos 8 caracteres.';
+      } else if (errors['password'].errors['maxlength']) {
+        this.errorMessage = 'La contraseña no debe exceder 12 caracteres.';
+      }
+    }
   }
 }
