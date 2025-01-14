@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Directive, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastController } from '@ionic/angular';
@@ -26,34 +26,24 @@ export class AdminPage implements OnInit {
     // Simulación de datos de citas
     this.citas = [
       {
-        Local: 'DoñaClara',
-        Fecha: '2025-01-11',
-        Estrellas: '4',
-        Direccion: 'Callenueva 123',
-        Comentario: 'Excelente atención',
+        Local: 
+        'La chica ale',
+
+        Direcion:
+        'pto barroso 681',
+
+        Comentario: 
+        'Excelente atención',
       },
       {
-        Local:'Patricio',
-        Fecha:'2025-01-12',
-        Estrellas:'5',
-        Direccion:'Carnot 937',
-        Comentario:'Excelente servicio.',
-        
-      },
-      {
-        Local:'Lupita',
-        Fecha:'2025-01-13',
-        Estrellas:'4',
-        Direccion:'Calle 32',
-        Comentario:'Muy bueno',
-        
-      },
-      {
-        Local:'juana',
-        Fecha:'2025-01-13',
-        Estrellas:'0',
-        Direccion:'Providencia 123',
-        Comentario:'Malo Rechazar',
+        Local:
+        'Lupita',
+
+        Direccion:
+        'Calle 32',
+
+        Comentario:
+        'Muy bueno',
         
       },
     ];

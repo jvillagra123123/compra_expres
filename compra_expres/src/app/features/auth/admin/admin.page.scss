@@ -87,12 +87,12 @@ ion-button {
 
 /* Botón Aceptar */
 ion-button[color="success"] {
-  background-color: #2ecc71; /* Verde para aceptar */
+  background-color: #cc8d2e; /* Verde para aceptar */
 }
 
 /* Botón Rechazar */
 ion-button[color="danger"] {
-  background-color: #FF6F00; /* Naranja para rechazar */
+  background-color: #00ff9d; /* Naranja para rechazar */
 }
 
 /* Mensaje de "No hay locales pendientes" */
@@ -120,7 +120,7 @@ ion-item {
 ion-label {
   font-size: 14px; /* Tamaño del texto */
   font-weight: bold; /* Negrita */
-  color: #333333; /* Gris oscuro */
+  color: #120c0c00; /* Gris oscuro */
   margin-bottom: 4px; /* Espaciado inferior */
 }
 
