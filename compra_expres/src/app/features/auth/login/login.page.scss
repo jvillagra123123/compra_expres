@@ -4,12 +4,12 @@
   flex-direction: column; /* Elementos en columna. */
   align-items: center; /* Centrado horizontal. */
   padding: 20px; /* Espaciado interno. */
-  background-color: #FFFFFF; /* Fondo blanco puro. */
+  background-color: var(--blanco-fondo); /* Fondo blanco puro. */
 }
 
 /* Título de la aplicación */
 .app-title {
-  color: #2ecc71; /* Azul claro para transmitir confianza. */
+  color: var(--verde-titulos-logos); /* Verde para transmitir confianza. */
   font-size: 24px; /* Tamaño del texto. */
   font-weight: bold; /* Negrita para destacar. */
   margin-bottom: 40px; /* Espaciado inferior. */
@@ -17,7 +17,7 @@
 
 /* Título de la sección de inicio de sesión */
 .login-title {
-  color: #333333; /* Negro suave para texto principal. */
+  color: var(--negro-textos); /* Negro suave para texto principal. */
   font-size: 20px; /* Tamaño del texto. */
   font-weight: 600; /* Seminegrita. */
   margin-bottom: 20px; /* Espaciado inferior. */
@@ -40,16 +40,16 @@
   font-size: 14px; /* Tamaño del texto del label. */
   margin-bottom: 5px; /* Espaciado inferior. */
   text-align: left; /* Alineación izquierda. */
-  color: #333333; /* Negro suave para texto principal. */
+  color: var(--negro-textos); /* Negro suave para texto principal. */
 }
 
 .input-group input {
   width: 100%; /* Ancho completo. */
   padding: 10px; /* Espaciado interno. */
   font-size: 16px; /* Tamaño del texto. */
-  border: 1px solid #DDDDDD; /* Borde gris suave. */
+  border: 1px solid var(--gris-bordes); /* Borde gris suave. */
   border-radius: 25px; /* Bordes redondeados. */
-  background-color: #F5F5F5; /* Fondo gris claro. */
+  background-color: var(--gris-claro-campos); /* Fondo gris claro. */
   outline: none; /* Sin contorno. */
 }
 
@@ -59,17 +59,17 @@
   padding: 15px; /* Espaciado interno. */
   font-size: 16px; /* Tamaño del texto. */
   font-weight: bold; /* Texto en negrita. */
-  color: #FF6F00; /* Naranja suave para texto destacado. */
-  background-color: #FFFFFF; /* Fondo blanco. */
-  border: 1px solid #DDDDDD; /* Borde gris claro. */
+  color: var(--naranja-botones); /* Naranja suave para texto destacado. */
+  background-color: var(--blanco-fondo); /* Fondo blanco. */
+  border: 1px solid var(--gris-bordes); /* Borde gris claro. */
   border-radius: 25px; /* Bordes redondeados. */
   cursor: pointer; /* Manito al pasar. */
   margin-bottom: 20px; /* Espaciado inferior. */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil. */
+  box-shadow: 0px 4px 6px var(--sombra-sutil); /* Sombra sutil. */
 }
 
 .login-button:hover {
-  background-color: #F8F8F8; /* Fondo más claro al pasar. */
+  background-color: var(--gris-claro-campos); /* Fondo más claro al pasar. */
 }
 
 /* Enlaces secundarios */
@@ -77,7 +77,7 @@
 .create-account {
   display: block; /* Bloque completo. */
   font-size: 14px; /* Tamaño del texto. */
-  color: #FF6F00; /* Naranja suave para enlaces. */
+  color: var(--naranja-botones); /* Naranja suave para enlaces. */
   text-decoration: none; /* Sin subrayado. */
   margin-bottom: 10px; /* Espaciado inferior. */
 }
@@ -89,7 +89,7 @@
 
 /* Mensajes de error */
 .error-message {
-  color: #FF0000; /* Rojo brillante para alertas y errores. */
+  color: var(--rojo-error); /* Rojo brillante para alertas y errores. */
   font-size: 12px; /* Tamaño reducido. */
   margin-top: -8px; /* Ajuste superior. */
   margin-bottom: 10px; /* Espaciado inferior. */
