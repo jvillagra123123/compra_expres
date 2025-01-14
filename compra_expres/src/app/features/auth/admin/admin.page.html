@@ -28,25 +28,6 @@
       </div>
     </ion-content>
 
-<div *ngIf="citas.length > 0; else noCitas">
-  <ion-list>
-    <ion-item *ngFor="let cita of citas" lines="none">
-      <ion-label>
-        <h2>Local: {{ cita.Local }}</h2>
-        <p>Fecha: {{ cita.fecha }}</p>
-        <p>Estrellas: {{ cita.Estrellas }}</p>
-        <p>Direccion: {{ cita.Direccion }}</p>
-        <p>Comentario: {{ cita.Comentario }}</p>
-      </ion-label>
-      <ion-buttons slot="end">
-        <ion-button color="success" (click)="aceptarCita(cita)">Aceptar</ion-button>
-        <ion-button color="danger" (click)="rechazarCita(cita)">Rechazar</ion-button>
-      </ion-buttons>
-    </ion-item>
-  </ion-list>
-</div>
- 
-
 
 
 
