@@ -75,8 +75,6 @@ export class AdminPage implements OnInit {
     if (this.piercingForm.valid && this.imagenSeleccionada) {
       const nuevoLocal = {
         Local: this.piercingForm.value.nombre,
-        Fecha: new Date().toISOString().split('T')[0], // Fecha actual
-        Estrellas: '*****', // Puedes ajustar este valor según tu lógica
         Direccion: this.piercingForm.value.direccion || 'Sin dirección',
         Comentario: 'Nuevo local añadido por el administrador.',
       };
