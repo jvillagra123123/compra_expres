@@ -55,7 +55,7 @@
   ion-button {
     width: 100%;
     margin-top: 20px;
-    --background: #4A90E2; /* Azul primario */
+    --background: #ff4400; /* Azul primario */
     --color: #fff; /* Texto blanco */
     --border-radius: 25px; /* Bordes redondeados */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -67,11 +67,11 @@
   }
   
   .links-container a {
-    color: #4A90E2; /* Azul primario */
+    color: #FF4500; /* Azul primario */
     text-decoration: none;
   }
   
   .links-container a:hover {
     text-decoration: underline;
   }
-  
+
