@@ -19,7 +19,8 @@
 .app-title {
   font-size: 28px; /* Tamaño del texto. */
   font-weight: bold; /* Negrita para destacar. */
-  color: #007BFF; /* Azul claro para representar confianza. */
+  color: #2ecc71; /* Azul claro para representar confianza. */
+  font-style: "roboto";/* Fuente personalizada. */
 }
 
 /* Contenedor del formulario */
@@ -35,7 +36,7 @@
 .input-item {
   margin-bottom: 16px; /* Espaciado inferior entre campos. */
   --border-radius: 25px; /* Bordes redondeados. */
-  --highlight-color-focused: #007BFF; /* Resaltar borde en azul claro al enfocar. */
+  --highlight-color-focused: #2ecc71; /* Resaltar borde en azul claro al enfocar. */
 }
 
 .input-item ion-label {
@@ -60,13 +61,7 @@
 }
 
 /* Botón de acción */
-ion-button {
-  width: 100%; /* Ancho completo. */
-  margin-top: 20px; /* Espaciado superior. */
-  --background: #FF6F00; /* Naranja suave para dinamismo. */
-  --color: #FFFFFF; /* Texto blanco. */
-  --border-radius: 25px; /* Bordes redondeados. */
-}
+
 
 ion-button:hover {
   background-color: #FF8C00; /* Naranja más claro al pasar. */

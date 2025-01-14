@@ -26,26 +26,34 @@ export class AdminPage implements OnInit {
     // Simulación de datos de citas
     this.citas = [
       {
-        Local: 'Doña Clara',
+        Local: 'DoñaClara',
         Fecha: '2025-01-11',
-        Estrellas: '*****',
-        Direccion: 'Calle Padre Damián Deveuster, 01779',
-        Comentario: 'Excelente atención y servicio.',
+        Estrellas: '4',
+        Direccion: 'Callenueva 123',
+        Comentario: 'Excelente atención',
       },
       {
-        Local: 'Patricio Rodríguez',
-        Fecha: '2025-01-12',
-        Estrellas: '*****',
-        Direccion: 'Carnot 937, Santiago, Providencia',
-        Comentario: 'Excelente atención y servicio.',
+        Local:'Patricio',
+        Fecha:'2025-01-12',
+        Estrellas:'5',
+        Direccion:'Carnot 937',
+        Comentario:'Excelente servicio.',
         
       },
       {
-        Local: '',
-        Fecha: '',
-        Estrellas: '',
-        Direccion: '',
-        Comentario: '',
+        Local:'Lupita',
+        Fecha:'2025-01-13',
+        Estrellas:'4',
+        Direccion:'Calle 32',
+        Comentario:'Muy bueno',
+        
+      },
+      {
+        Local:'juana',
+        Fecha:'2025-01-13',
+        Estrellas:'0',
+        Direccion:'Providencia 123',
+        Comentario:'Malo Rechazar',
         
       },
     ];
@@ -107,7 +115,7 @@ export class AdminPage implements OnInit {
   async showToast(message: string, color: string = 'success') {
     const toast = await this.toastController.create({
       message,
-      duration: 2000,
+      duration: 0,
       position: 'bottom',
       color,
     });

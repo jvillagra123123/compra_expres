@@ -33,7 +33,7 @@ export class RegisterPage implements OnInit {
           '',
           [
             Validators.required,
-            Validators.minLength(9),
+            Validators.minLength(6),
             Validators.maxLength(20),
             Validators.pattern(
               /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#%!&/])[A-Za-z\d@#%!&/]+$/

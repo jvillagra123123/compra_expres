@@ -1,15 +1,14 @@
 <app-header title="Administrador"></app-header>
 <ion-content>
   <div class="admin-container">
-    <!-- Gestión de Agendas -->
-    <ion-card> 
-      <ion-card-header>
-        <ion-card-title>Gestión de Locales</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
+    <!-- Gestión de Agendas --> 
+      <ion-header>
+        <ion-title>Gestión de Locales</ion-title>
+      </ion-header>
+      <ion-content>
         <div *ngIf="citas.length > 0; else noCitas">
           <ion-list>
-            <ion-item *ngFor="let cita of citas">
+            <ion-item *ngFor="let cita of citas" lines="none">
               <ion-label>
                 <h2>Local: {{ cita.Local }}</h2>
                 <p>Fecha: {{ cita.fecha }}</p>
@@ -17,52 +16,16 @@
                 <p>Direccion: {{ cita.Direccion }}</p>
                 <p>Comentario: {{ cita.Comentario }}</p>
               </ion-label>
-              <ion-button color="success" (click)="aceptarCita(cita)">Aceptar</ion-button>
-              <ion-button color="danger" (click)="rechazarCita(cita)">Rechazar</ion-button>
+              <ion-buttons slot="end">
+                <ion-button color="success" (click)="aceptarCita(cita)">Aceptar</ion-button>
+                <ion-button color="danger" (click)="rechazarCita(cita)">Rechazar</ion-button>
+              </ion-buttons>
             </ion-item>
           </ion-list>
         </div>
         <ng-template #noCitas>
           <p>No hay locales pendientes.</p>
         </ng-template>
-      </ion-card-content>
-    </ion-card>
-
-    <!-- Agregar Nuevo Piercing -->
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Agregar Nuevo Local</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <form [formGroup]="piercingForm" (ngSubmit)="agregarPiercing()">
-          <ion-item>
-            <ion-label position="stacked">Nombre del Local</ion-label>
-            <ion-input formControlName="nombre" placeholder="Nombre del Local"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="stacked">Fecha de Registro</ion-label>
-            <ion-input formControlName="nombre" placeholder="Fecha de Registro"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="stacked">Estrellas</ion-label>
-            <ion-input formControlName="nombre" placeholder="Cantidad de Estrellas"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="stacked">Direccion</ion-label>
-            <ion-input formControlName="nombre" placeholder="Direccion del Local"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="stacked">Imagen del Local</ion-label>
-            <ion-input
-              type="file"
-              (change)="onFileSelected($event)"
-              accept="image/*"
-            ></ion-input>
-          </ion-item>
-          <ion-button expand="block" type="submit" color="primary">  Agregar Local</ion-button>
-        </form>
-      </ion-card-content>
-    </ion-card>
+      </ion-content>
   </div>
 </ion-content>
-
