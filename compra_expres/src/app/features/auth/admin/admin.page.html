@@ -1,11 +1,12 @@
 <app-header title="Administrador"></app-header>
 <ion-content>
   <div class="admin-container">
-    <!-- Gestión de Agendas --> 
-      <ion-header>
-        <ion-title>Gestión de Locales</ion-title>
-      </ion-header>
-      <ion-content>
+    <!-- Gestión de Agendas -->
+    <ion-card> 
+      <ion-card-header>
+        <ion-card-title>Gestión de Locales</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
         <div *ngIf="citas.length > 0; else noCitas">
           <ion-list>
             <ion-item *ngFor="let cita of citas" lines="none">
@@ -26,6 +27,7 @@
         <ng-template #noCitas>
           <p>No hay locales pendientes.</p>
         </ng-template>
-      </ion-content>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
