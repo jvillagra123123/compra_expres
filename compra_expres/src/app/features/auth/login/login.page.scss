@@ -4,23 +4,25 @@
   flex-direction: column; /* Elementos en columna. */
   align-items: center; /* Centrado horizontal. */
   padding: 20px; /* Espaciado interno. */
-  background-color: var(--blanco-fondo); /* Fondo blanco puro. */
+  background-color: #F5F5F5; /* Fondo gris claro. */
 }
 
 /* Título de la aplicación */
 .app-title {
-  color: var(--verde-titulos-logos); /* Verde para transmitir confianza. */
-  font-size: 24px; /* Tamaño del texto. */
+  color: #2ecc71; /* Verde para transmitir confianza. */
+  font-size: 28px; /* Tamaño del texto. */
   font-weight: bold; /* Negrita para destacar. */
   margin-bottom: 40px; /* Espaciado inferior. */
+  font-family: "roboto", sans-serif; /* Fuente personalizada. */
 }
 
 /* Título de la sección de inicio de sesión */
 .login-title {
-  color: var(--negro-textos); /* Negro suave para texto principal. */
+  color: #2ecc71; /* Negro suave para texto principal. */
   font-size: 20px; /* Tamaño del texto. */
   font-weight: 600; /* Seminegrita. */
   margin-bottom: 20px; /* Espaciado inferior. */
+  font-family: "roboto", sans-serif; /* Fuente personalizada. */
 }
 
 /* Contenedor del formulario */
@@ -33,23 +35,25 @@
 /* Grupos de entrada */
 .input-group {
   margin-bottom: 20px; /* Espaciado entre campos. */
+  text-align: center;
 }
 
 .input-group label {
   display: block; /* Bloque completo. */
   font-size: 14px; /* Tamaño del texto del label. */
   margin-bottom: 5px; /* Espaciado inferior. */
-  text-align: left; /* Alineación izquierda. */
-  color: var(--negro-textos); /* Negro suave para texto principal. */
+  text-align: center; /* Alineación izquierda. */
+  color: #333333; /* Negro suave para texto principal. */
 }
 
 .input-group input {
   width: 100%; /* Ancho completo. */
-  padding: 10px; /* Espaciado interno. */
+  padding: 12px 16px; /* Espaciado interno. */
   font-size: 16px; /* Tamaño del texto. */
-  border: 1px solid var(--gris-bordes); /* Borde gris suave. */
+  border: 1px solid #eeeeee; /* Borde gris claro. */
   border-radius: 25px; /* Bordes redondeados. */
-  background-color: var(--gris-claro-campos); /* Fondo gris claro. */
+  background-color: #dddddd; /* Fondo blanco. */
+  font-family: "roboto", sans-serif; /* Fuente personalizada. */
   outline: none; /* Sin contorno. */
 }
 
@@ -59,17 +63,16 @@
   padding: 15px; /* Espaciado interno. */
   font-size: 16px; /* Tamaño del texto. */
   font-weight: bold; /* Texto en negrita. */
-  color: var(--naranja-botones); /* Naranja suave para texto destacado. */
-  background-color: var(--blanco-fondo); /* Fondo blanco. */
-  border: 1px solid var(--gris-bordes); /* Borde gris claro. */
+  color: #F5F5F5; /* Naranja suave para texto destacado. */
+  background-color: #2ecc71; /* Fondo blanco. */
+  border: 1px solid #2ecc71; /* Borde gris claro. */
   border-radius: 25px; /* Bordes redondeados. */
   cursor: pointer; /* Manito al pasar. */
   margin-bottom: 20px; /* Espaciado inferior. */
-  box-shadow: 0px 4px 6px var(--sombra-sutil); /* Sombra sutil. */
 }
 
 .login-button:hover {
-  background-color: var(--gris-claro-campos); /* Fondo más claro al pasar. */
+  background-color: #2ecc71; /* Fondo más claro al pasar. */
 }
 
 /* Enlaces secundarios */
@@ -77,9 +80,10 @@
 .create-account {
   display: block; /* Bloque completo. */
   font-size: 14px; /* Tamaño del texto. */
-  color: var(--naranja-botones); /* Naranja suave para enlaces. */
+  color: #FF6F00; /* Naranja suave para enlaces. */
   text-decoration: none; /* Sin subrayado. */
   margin-bottom: 10px; /* Espaciado inferior. */
+  font-family: "roboto", sans-serif; /* Fuente personalizada. */
 }
 
 .forgot-password:hover,
@@ -89,8 +93,9 @@
 
 /* Mensajes de error */
 .error-message {
-  color: var(--rojo-error); /* Rojo brillante para alertas y errores. */
+  color: #FF0000; /* Rojo brillante para alertas y errores. */
   font-size: 12px; /* Tamaño reducido. */
   margin-top: -8px; /* Ajuste superior. */
   margin-bottom: 10px; /* Espaciado inferior. */
+  font-family: "roboto", sans-serif; /* Fuente personalizada. */
 }

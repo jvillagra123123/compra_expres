@@ -10,7 +10,6 @@
 /* Estilo general de las tarjetas */
 ion-card {
   border-radius: 12px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
   background-color: #ffffff; /* Fondo blanco */
 }
 
@@ -87,12 +86,12 @@ ion-button {
 
 /* Botón Aceptar */
 ion-button[color="success"] {
-  background-color: #cc8d2e; /* Verde para aceptar */
+  background-color: #00ff9d; /* Verde para aceptar */
 }
 
 /* Botón Rechazar */
 ion-button[color="danger"] {
-  background-color: #00ff9d; /* Naranja para rechazar */
+  background-color: #cc8d2e; /* Naranja para rechazar */
 }
 
 /* Mensaje de "No hay locales pendientes" */
@@ -136,15 +135,12 @@ ion-input {
 /* Botón de envío del formulario */
 ion-button[type="submit"] {
   width: 100%; /* Ancho completo */
-  background-color: #2ecc71; /* Verde primario */
+  background-color: #ffffff; /* Verde primario */
   color: #ffffff; /* Texto blanco */
   border-radius: 25px; /* Bordes redondeados */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
-ion-button[type="submit"]:hover {
-  background-color: #27ae60; /* Verde más oscuro al pasar */
-}
+
 
 
 

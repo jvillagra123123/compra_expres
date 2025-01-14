@@ -15,6 +15,7 @@ import { AlertComponent } from './components/alert/alert.component';
 
 
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -24,6 +25,7 @@ import { AlertComponent } from './components/alert/alert.component';
     MenuComponent,
     SearchComponent,
     AlertComponent,
+   
     
 
   ],
@@ -35,6 +37,7 @@ import { AlertComponent } from './components/alert/alert.component';
     MenuComponent,
     SearchComponent,
     AlertComponent,
+
    
 
   ],
@@ -44,6 +47,7 @@ import { AlertComponent } from './components/alert/alert.component';
     ReactiveFormsModule,
     IonicModule,
     RouterModule,
+    
   ]
 })
 export class SharedModule { }

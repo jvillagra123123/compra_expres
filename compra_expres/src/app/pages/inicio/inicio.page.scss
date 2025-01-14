@@ -5,6 +5,7 @@
     height: calc(100vh - 56px); /* Ajusta el espacio restante debajo del menú */
     margin-top: 0px; /* Altura estimada del menú, ajústalo según sea necesario */
     overflow: hidden;
+    background-color: #e0e0e0;
   }
   
   /* Imagen de fondo */
@@ -49,11 +50,9 @@
     width: 100px; /* Ajusta el ancho del botón */
     height: 5%; /* Ajusta la altura del botón */
     font-size: 12px; /* Tamaño del texto */
-    background: #f0f0f0; /* Color de fondo */
-    color: #1b1b1b; /* Color del texto */
+    background-color: #f0f0f0; /* Color de fondo */
+    color: #f0f0f0; /* Color del texto */
     border-radius: 100%; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    transition: transform 0.2s, background-color 0.2s; /* Transición suave */
   }
   
 .custom-button:hover {
@@ -94,11 +93,9 @@
     width: 100px; /* Ajusta el ancho del botón */
     height: 5%; /* Ajusta la altura del botón */
     font-size: 12px; /* Tamaño del texto */
-    background: #e0e0e0; /* Color de fondo */
-    color: #1b1b1b; /* Color del texto */
+    background-color: #e0e0e0; /* Color de fondo */
+    color: #f0f0f0; /* Color del texto */
     border-radius: 100%; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    transition: transform 0.2s, background-color 0.2s; /* Transición suave */
   }
   
 .custom-button1:hover {
@@ -140,11 +137,9 @@
     width: 100px; /* Ajusta el ancho del botón */
     height: 5%; /* Ajusta la altura del botón */
     font-size: 12px; /* Tamaño del texto */
-    background: #e2e2e2; /* Color de fondo */
-    color: #1b1b1b; /* Color del texto */
+    background-color: #e2e2e2; /* Color de fondo */
+    color: #f0f0f0; /* Color del texto */
     border-radius: 100%; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    transition: transform 0.2s, background-color 0.2s; /* Transición suave */
   }
   
 .custom-button2:hover {

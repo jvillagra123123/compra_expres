@@ -1,16 +1,93 @@
-
-.title-app{
-    text-align: center;
-}
-
-.app-title{
-    text-align: center;
-}
-
-.avatar {
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center;    /* Centra verticalmente */
-    height: 10vh;          /* Altura completa de la pantalla */
+/* Estilo general de la página de perfil */
+.profile-page {
+    padding: 20px; /* Espaciado interno general */
+    background-color: #f9f9f9; /* Fondo claro para contraste */
+    font-family: "Roboto", sans-serif; /* Fuente moderna y legible */
+  }
+  
+  /* Contenedor del título */
+  .title-container {
+    text-align: center; /* Centrar el título horizontalmente */
+    margin-bottom: 20px; /* Espaciado inferior */
+  }
+  
+  .app-title {
+    font-size: 24px; /* Tamaño grande para destacar */
+    font-weight: bold; /* Negrita para énfasis */
+    color: #2ecc71; /* Verde para transmitir confianza */
+    margin: 0; /* Sin márgenes adicionales */
+  }
+  
+  /* Estilo del avatar */
+  .avatar {
+    display: flex; /* Activar diseño flexible */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    margin-bottom: 20px; /* Espaciado inferior */
+  }
+  
+  .avatar ion-avatar {
+    width: 120px; /* Tamaño del avatar */
+    height: 120px; /* Tamaño del avatar */
+    border: 3px solid #2ecc71; /* Borde verde */
+    border-radius: 50%; /* Forma circular */
+    overflow: hidden; /* Recorte del contenido */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  }
+  
+  /* Estilo de los campos de entrada */
+  .input-item {
+    --border-color: #acacac; /* Color del borde */
+    --border-color-focused: #2ecc71; /* Color del borde al enfocar */
+    --highlight-color: #2ecc71; /* Color del texto al enfocar */
+    margin-bottom: 15px; /* Espaciado entre campos */
+    background-color:#acacac ;
+  }
+  
+  .input-item ion-label {
+    color: #333333; /* Color del texto del label */
+    font-size: 14px; /* Tamaño de la etiqueta */
+  }
+  
+  .input-item ion-input {
+    font-size: 16px; /* Tamaño del texto del input */
+    color: #333333; /* Color del texto */
+  }
+  
+  /* Mensajes de error */
+  .error-message {
+    color: #ff6f61; /* Rojo suave para mensajes de error */
+    font-size: 12px; /* Tamaño reducido */
+    margin-top: -10px; /* Ajuste de posición */
+    margin-bottom: 10px; /* Espaciado inferior */
+    text-align: left; /* Alineación del texto */
+  }
+  
+  /* Botón de guardar cambios */
+  ion-button {
+    --background: #2ecc71; /* Color de fondo verde */
+    --background-hover: #27ae60; /* Fondo más oscuro al pasar */
+    --color: #ffffff; /* Texto blanco */
+    font-size: 16px; /* Tamaño del texto */
+    font-weight: bold; /* Negrita para destacar */
+    border-radius: 25px; /* Bordes redondeados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin-top: 20px; /* Espaciado superior */
+  }
+  
+  /* Ajustes para dispositivos pequeños */
+  @media (max-width: 768px) {
+    .avatar ion-avatar {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .app-title {
+      font-size: 20px;
+    }
+  
+    ion-button {
+      font-size: 14px;
+    }
   }
   
