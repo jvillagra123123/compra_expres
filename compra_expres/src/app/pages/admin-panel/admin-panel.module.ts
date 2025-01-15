@@ -8,11 +8,14 @@ import { AdminPanelPageRoutingModule } from './admin-panel-routing.module';
 
 import { AdminPanelPage } from './admin-panel.page';
 
+import { SharedModule } from'src/app/shared/shared.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     AdminPanelPageRoutingModule
   ],
   declarations: [AdminPanelPage]

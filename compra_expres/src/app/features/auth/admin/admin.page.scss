@@ -58,7 +58,7 @@ ion-label h8 {
 .card-buttons-container {
   position: absolute;
   top: 53px; /* Mueve los botones por encima del card */
-  right: 100px; /* Mueve los botones a la derecha */
+  right: 90px; /* Mueve los botones a la derecha */
   gap: 10px;
 }
 
@@ -73,7 +73,18 @@ ion-item {
   border: 1px solid #cccccc; /* Borde gris */
 }
 
+.movable-icon {
+  position: absolute; /* Permite mover el ícono por toda la pantalla */
+  top: 50%; /* Coloca el ícono a mitad de la pantalla verticalmente (puedes ajustarlo) */
+  left: 50%; /* Coloca el ícono a mitad de la pantalla horizontalmente (puedes ajustarlo) */
+  transform: translate(-50%, -50%); /* Centra el ícono exactamente en el punto especificado */
+  cursor: pointer; /* Cambia el cursor a mano cuando pases el mouse sobre el ícono */
+  transition: all 0.3s ease; /* Añade una transición suave para que el movimiento sea fluido */
+}
 
+.movable-icon:hover {
+  opacity: 0.7; /* Cambia la opacidad del ícono cuando el cursor está encima */
+}
 
 
 

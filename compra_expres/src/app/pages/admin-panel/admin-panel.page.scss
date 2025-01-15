@@ -1,0 +1,128 @@
+/* Contenedor principal */
+.login-container {
+    position: relative; /* Para posicionar los elementos hijos */
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    width: 100vw; /* Ocupa todo el ancho de la pantalla */
+    overflow: hidden; /* Evita que elementos se salgan del contenedor */
+  }
+  
+  /* Imagen de fondo */
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/logo-login2.jpg'); /* Ruta de la imagen */
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    z-index: 1; /* Ubica la imagen detrás del formulario */
+  }
+  
+  /* Contenedor del formulario */
+  .form-container {
+    position: absolute;
+    top: 50%; /* Posiciona el centro vertical */
+    left: 50%; /* Posiciona el centro horizontal */
+    transform: translate(-50%, -50%); /* Ajusta para centrar completamente */
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+    padding: 2rem; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+    z-index: 2; /* Asegura que esté delante de la imagen */
+    width: 90%; /* Ancho del formulario en pantallas pequeñas */
+    max-width: 400px; /* Máximo ancho en pantallas grandes */
+  }
+  
+  .form-title{
+    text-align: center;
+  }
+  
+  /* Título del formulario */
+  .login-title {
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Grupos de entrada */
+  .input-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+  /* Botón de inicio de sesión */
+  .submit-button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    background-color: #7de54a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Enlaces */
+  .forgot-password,
+  .create-account {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    color: #FF6F00;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  .forgot-password:hover,
+  .create-account:hover {
+    text-decoration: underline;
+  }
+  
+  .message-container {
+    font-size: 0.9rem; /* Tamaño reducido de la fuente */
+    color: #555; /* Color del texto */
+    display: inline-flex; /* Coloca los elementos en línea */
+    align-items: baseline; /* Alinea el texto y el enlace en la misma línea base */
+    gap: 0.3rem; /* Espaciado reducido entre el texto y el enlace */
+  }
+  
+  .message-container a {
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: #FF6F00; /* Color del enlace */
+    font-weight:bold, /* Hace que el enlace destaque un poco más */
+  }
+  
+  .message-container a:hover {
+    text-decoration: underline; /* Agrega subrayado al pasar el cursor */
+  }
+  
+  .error-message {
+    color: #FF0000; /* Color de error */
+    font-weight: bold; /* Negrita el mensaje de error */
+    margin-top: 0.5rem; /* Espacio superior al mensaje de error */
+    font-size: 0.7rem; /* Tamaño reducido de la fuente */
+  }
