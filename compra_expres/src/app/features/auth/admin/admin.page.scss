@@ -1,144 +1,148 @@
-/* Contenedor principal de la página del administrador */
+/* Fondo de la imagen de fondo */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/logo-login2.jpg'); /* Ruta de la imagen */
+  background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+  background-position: center; /* Centra la imagen */
+  z-index: 1; /* Ubica la imagen detrás del formulario */
+}
+
+/* Contenedor del formulario */
 .admin-container {
+  position: absolute;
+  top: 50%; /* Posiciona el centro vertical */
+  left: 50%; /* Posiciona el centro horizontal */
+  transform: translate(-50%, -50%); /* Ajusta para centrar completamente */
+  background: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+  padding: 1rem; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+  z-index: 2; /* Asegura que esté delante de la imagen */
+  width: 90%; /* Ancho del formulario en pantallas pequeñas */
+  max-width: 700px; /* Limita el tamaño máximo */
+  height: auto; /* Ajusta el alto según el contenido */
+}
+
+/* Contenedor de las tarjetas (ion-card) */
+.card-container {
   display: flex;
-  flex-direction: column; /* Organiza las tarjetas en columna */
-  gap: 20px; /* Espaciado entre tarjetas */
-  padding: 20px; /* Espaciado interno */
-  background-color: #f5f5f5; /* Fondo claro */
+  flex-direction: column; /* Apila las tarjetas verticalmente */
+  gap: 10px; /* Espacio entre las tarjetas */
+  overflow-y: auto; /* Permite el desplazamiento vertical cuando hay muchas tarjetas */
+  max-height: 70vh; /* Limita la altura máxima para permitir el desplazamiento */
 }
 
-/* Estilo general de las tarjetas */
+/* Estilo de las tarjetas */
 ion-card {
-  border-radius: 12px; /* Bordes redondeados */
-  background-color: #ffffff; /* Fondo blanco */
+  width: 330px; /* Ancho específico de la tarjeta */
+  height: auto; /* Deja que la tarjeta se ajuste al contenido */
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 10px; /* Espaciado interno */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  
 }
 
-/* Encabezado de las tarjetas */
-ion-card-header {
-  background-color: #2ecc71; /* Verde primario */
-  color: #ffffff; /* Texto blanco */
-  padding: 16px; /* Espaciado interno */
-  border-radius: 12px 12px 0 0; /* Bordes superiores redondeados */
+/* Estilo de los títulos dentro del ion-label */
+ion-label h8 {
+  font-size: 15px; /* Tamaño del título */
+  font-weight: lighter;
 }
 
-/* Título de las tarjetas */
-ion-card-title {
-  font-size: 18px; /* Tamaño del texto */
-  font-weight: bold; /* Negrita */
-  margin: 0; /* Sin margen adicional */
-}
-
-/* Contenido de las tarjetas */
-ion-card-content {
-  padding: 16px; /* Espaciado interno */
-}
-
-/* Lista de citas */
-ion-list {
-  border: 1px solid #ddd; /* Borde gris claro */
-  border-radius: 8px; /* Bordes redondeados */
-  overflow: hidden; /* Elimina desbordamiento */
-}
-
-ion-item {
-  display: flex; /* Contenedor flexible */
-  flex-direction: row; /* Textos y botones en fila horizontal */ 
-  align-items: flex-start; /* Alinea los textos en la parte superior */ 
-  justify-content: space-between; /* Textos a la izquierda, botones a la derecha */ 
-  padding: 12px 16px; /* Espaciado interno */
-  border-bottom: 1px solid #ddd; /* Línea divisoria */
-}
-
-ion-item:last-child {
-  border-bottom: none; /* Sin línea para el último elemento */
-}
-
-/* Etiquetas dentro de la lista */
-ion-label {
-  flex: 1; /* Ocupa el espacio restante */
-  margin-right: 16px; /* Espaciado entre el texto y los botones */
-}
-
-
-ion-label h2 {
-  font-size: 16px; /* Tamaño del título */
-  font-weight: bold; /* Negrita */
-  margin: 0 0 4px 0; /* Espaciado inferior */
-}
-
-ion-label p {
-  margin: 0; /* Sin margen adicional */
-  color: #000000; /* Texto en color negro */
-  line-height: 1.5; /* Asegura que el texto no se amontone */
-}
+/* Contenedor de los botones flotantes en cada tarjeta */
 /* Contenedor de los botones */
-.button-container {
-  display: flex; /* Contenedor flexible para los botones */
-  flex-direction: row; /* Alineación horizontal */
-  gap: 8px; /* Espaciado entre botones */
+.card-buttons-container {
+  position: absolute;
+  top: 53px; /* Mueve los botones por encima del card */
+  right: 100px; /* Mueve los botones a la derecha */
+  gap: 10px;
 }
 
-
-ion-button {
-  border-radius: 25px; /* Bordes redondeados */
-  min-width: 80px; /* Ancho mínimo para los botones */
-}
-
-/* Botón Aceptar */
-ion-button[color="success"] {
-  background-color: #00ff9d; /* Verde para aceptar */
-}
-
-/* Botón Rechazar */
-ion-button[color="danger"] {
-  background-color: #cc8d2e; /* Naranja para rechazar */
-}
-
-/* Mensaje de "No hay locales pendientes" */
-ion-card-content p {
-  color: #888888; /* Texto gris tenue */
-  font-style: italic; /* Estilo cursivo */
-  text-align: center; /* Centrado */
-}
-
-/* Formulario para agregar un nuevo local */
+/* Estilo del formulario para agregar un nuevo local */
 form {
   display: flex;
   flex-direction: column; /* Organiza los elementos en columna */
-  gap: 16px; /* Espaciado entre elementos */
+  gap: 10px; /* Espaciado entre elementos */
 }
 
-/* Elementos del formulario */
 ion-item {
-  background-color: #f9f9f9; /* Fondo claro */
-  border-radius: 8px; /* Bordes redondeados */
-  padding: 12px; /* Espaciado interno */
+  border: 1px solid #cccccc; /* Borde gris */
 }
 
-/* Etiquetas de los campos del formulario */
-ion-label {
-  font-size: 14px; /* Tamaño del texto */
-  font-weight: bold; /* Negrita */
-  color: #120c0c00; /* Gris oscuro */
-  margin-bottom: 4px; /* Espaciado inferior */
-}
 
-/* Campos de entrada */
-ion-input {
-  font-size: 14px; /* Tamaño del texto */
-  padding: 8px; /* Espaciado interno */
-  border: 1px solid #ddd; /* Borde gris claro */
-  border-radius: 4px; /* Bordes redondeados */
-  background-color: #ffffff; /* Fondo blanco */
-}
 
-/* Botón de envío del formulario */
-ion-button[type="submit"] {
-  width: 100%; /* Ancho completo */
-  background-color: #ffffff; /* Verde primario */
-  color: #ffffff; /* Texto blanco */
-  border-radius: 25px; /* Bordes redondeados */
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

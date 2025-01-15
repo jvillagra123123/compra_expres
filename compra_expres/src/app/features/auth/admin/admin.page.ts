@@ -26,25 +26,44 @@ export class AdminPage implements OnInit {
     // Simulación de datos de citas
     this.citas = [
       {
-        Local: 
-        'La chica ale',
-
-        Direcion:
-        'pto barroso 681',
-
-        Comentario: 
-        'Excelente atención',
+        Local:'La chica ale',
+        Direcion:'Providencia 324',
+        Comentario:'Excelente atención',
       },
       {
-        Local:
-        'Lupita',
-
-        Direccion:
-        'Calle 32',
-
-        Comentario:
-        'Muy bueno',
-        
+        Local:'La chica ale',
+        Direcion:'Providencia 324',
+        Comentario:'Excelente atención',
+      },
+      {
+        Local:'La chica ale',
+        Direcion:'Providencia 324',
+        Comentario:'Excelente atención',
+      },
+      {
+        Local:'La chica ale',
+        Direcion:'Providencia 324',
+        Comentario:'Excelente atención',
+      },
+      {
+        Local:'La chica ale',
+        Direcion:'Providencia 324',
+        Comentario:'Excelente atención',
+      },
+      {
+        Local:'La chica ale',
+        Direcion:'Providencia 324',
+        Comentario:'Excelente atención',
+      },
+      {
+        Local:'La chica ale',
+        Direcion:'Providencia 324',
+        Comentario:'Excelente atención',
+      },
+      {
+        Local:'La chica ale',
+        Direcion:'Providencia 324',
+        Comentario:'Excelente atención',
       },
     ];
 
