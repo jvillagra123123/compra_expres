@@ -7,16 +7,16 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./header.component.scss'],
   standalone: false,
 })
-export class HeaderComponent  implements OnInit {
-  @Input() title: string= ''; // Título de la página
+export class HeaderComponent implements OnInit {
+  @Input() title: string = ''; // Título de la página
   @Input() showBackButton: boolean = true; // Mostrar o No el botón de Volver
+  @Input() hideHeader: boolean = false; // Controlar la visibilidad del header
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController) {}
 
   ngOnInit() {}
 
-  onBack(){
+  onBack() {
     this.navCtrl.back();
   }
-
 }

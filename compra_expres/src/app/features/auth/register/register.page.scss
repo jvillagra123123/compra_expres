@@ -42,6 +42,10 @@
   margin-bottom: 1rem;
 }
 
+.form-title{
+  text-align: center;
+}
+
 /* Grupos de entrada */
 .input-group {
   margin-bottom: 1.5rem;
@@ -65,11 +69,11 @@ input {
 }
 
 /* Botón de registro */
-.login-button {
+.submit-button {
   width: 100%;
-  padding: 1rem; /* Aumenté el padding para hacerlo más grande */
-  font-size: 1.2rem; /* Aumenté el tamaño de la fuente */
-  background-color: #007bff;
+  padding: 0.8rem; /* Aumenté el padding para hacerlo más grande */
+  font-size: 1rem; /* Aumenté el tamaño de la fuente */
+  background-color: #7de54a;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -84,17 +88,43 @@ input {
 
 /* Enlace "Iniciar sesión" (sin subrayado) */
 .forgot-password,
-.create-account {
+.login-link {
   display: block;
   text-align: center;
   margin-top: 1rem;
-  color: #007bff;
+  color: #FF6F00;
   text-decoration: none; /* Elimina la línea debajo */
   font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .forgot-password:hover,
 .create-account:hover {
-  text-decoration: none; /* Elimina el subrayado en el hover también */
+  text-decoration: underline; /* Elimina el subrayado en el hover también */
   color: #0056b3; /* Cambio de color al pasar el mouse */
+}
+
+.message-container {
+  font-size: 0.8rem; /* Tamaño reducido de la fuente */
+  color: #555; /* Color del texto */
+  display: inline-flex; /* Coloca los elementos en línea */
+  align-items: baseline; /* Alinea el texto y el enlace en la misma línea base */
+  gap: 0.3rem; /* Espaciado reducido entre el texto y el enlace */
+}
+
+.message-container a {
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  color: #FF6F00; /* Color del enlace */
+  font-weight:bold, /* Hace que el enlace destaque un poco más */
+}
+
+.message-container a:hover {
+  text-decoration: underline; /* Agrega subrayado al pasar el cursor */
+}
+
+.error-message {
+  color: #FF0000; /* Color de error */
+  font-weight: bold; /* Negrita el mensaje de error */
+  margin-top: 0.5rem; /* Espacio superior al mensaje de error */
+  font-size: 0.7rem; /* Tamaño reducido de la fuente */
 }
