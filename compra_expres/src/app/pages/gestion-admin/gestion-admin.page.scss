@@ -1,0 +1,69 @@
+ion-card {
+    /* Define márgenes alrededor de la tarjeta */
+    margin: 16px;
+    /* Define el radio de borde redondeado */
+    border-radius: 8px;
+    /* Agrega una sombra suave a la tarjeta */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  
+    /* Posiciona la tarjeta relativamente al contenedor padre */
+    position: relative;
+    /* Ajusta la posición vertical de la tarjeta. Puedes cambiar el valor a tu gusto. */
+    top: 50px; /* Por ejemplo, para moverla 20px hacia arriba */
+    /* bottom: 20px; /* Para moverla 20px hacia abajo */
+  }
+
+    ion-card-header {
+      /* Define el color de fondo del encabezado */
+      background-color: #f4f4f4; 
+      /* Agrega un borde inferior al encabezado */
+      border-bottom: 1px solid #ddd; 
+      /* Define el radio de borde redondeado superior izquierdo */
+      border-top-left-radius: 8px; 
+      /* Define el radio de borde redondeado superior derecho */
+      border-top-right-radius: 8px; 
+      /* Define el relleno interno del encabezado */
+      padding: 16px; 
+    }
+
+    ion-card-title {
+      /* Define el tamaño de fuente del título */
+      font-size: 18px; 
+      /* Define el peso de la fuente del título */
+      font-weight: bold; 
+      /* Define el color del título */
+      color: #333; 
+    }
+
+    ion-card-content {
+      /* Define el relleno interno del contenido */
+      padding: 16px; 
+      /* Define el tamaño de fuente del contenido */
+      font-size: 14px; 
+      /* Define el color del contenido */
+      color: #555; 
+    }
+
+    ion-button {
+      /* Define márgenes alrededor del botón */
+      margin: 16px 16px 0 16px; 
+    }
+
+
+.background-image {
+    /* Posiciona la imagen en la parte superior izquierda */
+    position: absolute; 
+    top: 0;
+    left: 0;
+    /* Define el ancho y alto de la imagen */
+    width: 100%; 
+    height: 100%; 
+    /* Define la ruta de la imagen */
+    background-image: url('/assets/logo-login3.jpg'); 
+    /* Hace que la imagen cubra todo el contenedor */
+    background-size: cover; 
+    /* Centra la imagen en el contenedor */
+    background-position: center; 
+    /* Ubica la imagen detrás de otros elementos */
+    z-index: -2; 
+}

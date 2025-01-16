@@ -71,9 +71,15 @@ const routes: Routes = [
     loadChildren: () => import('./features/auth/admin/admin.module').then( m => m.AdminPageModule)
   },
   {
+    path: 'gestion-admin',
+    loadChildren: () => import('./pages/gestion-admin/gestion-admin.module').then( m => m.GestionAdminPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'login'
   },
+  
+
   
 
   
