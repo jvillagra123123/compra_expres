@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin.page.scss'],
   standalone: false,
 })
+
 export class AdminPage implements OnInit {
   citas: any[] = []; // Simulación de citas solicitadas por clientes
   piercingForm!: FormGroup;
@@ -127,5 +128,9 @@ export class AdminPage implements OnInit {
       color,
     });
     toast.present();
+  }
+
+  navigateBack() {
+    this.router.navigate(['/inicio']); // Navega a la página 'inicio'
   }
 }

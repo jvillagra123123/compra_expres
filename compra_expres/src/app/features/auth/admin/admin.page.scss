@@ -58,7 +58,7 @@ ion-label h8 {
 .card-buttons-container {
   position: absolute;
   top: 53px; /* Mueve los botones por encima del card */
-  right: 90px; /* Mueve los botones a la derecha */
+  right: 80px; /* Mueve los botones a la derecha */
   gap: 10px;
 }
 
@@ -86,6 +86,19 @@ ion-item {
   opacity: 0.7; /* Cambia la opacidad del ícono cuando el cursor está encima */
 }
 
+
+.back-icon {
+  font-size: 24px; /* Tamaño del icono */
+  color: #007bff; /* Color del icono */
+  cursor: pointer; /* Cambia el cursor a "mano" */
+  transition: transform 0.3s ease;
+  z-index: 5;
+}
+
+.back-icon:hover {
+  transform: scale(1.2); /* Aumenta ligeramente el tamaño al pasar el ratón */
+  color: #0056b3; /* Cambia el color al pasar el ratón */
+}
 
 
 
