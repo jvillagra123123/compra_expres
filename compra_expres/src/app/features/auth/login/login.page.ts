@@ -64,7 +64,7 @@ export class LoginPage implements OnInit {
       } else if (email === adminEmail && password === adminPassword) {
         this.errorMessage = '';
         await this.showToast('¡Inicio de sesión exitoso como administrador!');
-        this.router.navigate(['/admin']); // Cambiar a la página de administrador
+        this.router.navigate(['/gestion-admin']); // Cambiar a la página de administrador
       } else {
         this.errorMessage = 'Correo o contraseña incorrectos.';
       }

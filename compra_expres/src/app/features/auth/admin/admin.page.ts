@@ -77,15 +77,16 @@ export class AdminPage implements OnInit {
     });
   }
 
-  aceptarCita(cita: any) {
-    this.showToast(` ${cita.cliente}.`);
-    this.citas = this.citas.filter((c) => c !== cita); // Eliminar cita aceptada
+  aceptarCita(citas: any) {
+    this.showToast(`Local aceptado: ${citas.cliente}`, 'success');
+    this.citas = this.citas.filter((c) => c !== citas); // Eliminar cita aceptada
+  }
+  
+  rechazarCita(citas: any) {
+    this.showToast(`Local rechazado: ${citas.cliente}`, 'danger');
+    this.citas = this.citas.filter((c) => c !== citas); // Eliminar cita rechazada
   }
 
-  rechazarCita(cita: any) {
-    this.showToast(` ${cita.cliente}.`);
-    this.citas = this.citas.filter((c) => c !== cita); // Eliminar cita rechazada
-  }
 
   onFileSelected(event: any) {
     this.imagenSeleccionada = event.target.files[0] || null;
@@ -123,12 +124,25 @@ export class AdminPage implements OnInit {
   async showToast(message: string, color: string = 'success') {
     const toast = await this.toastController.create({
       message,
-      duration: 0,
+      duration: 2000, // Duración del toast en milisegundos (ajusta a tu gusto)
       position: 'bottom',
       color,
+      buttons: [
+        {
+          text: 'Okay',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
     });
     toast.present();
   }
+
+  
+
+  
 
   navigateBack() {
     this.router.navigate(['/inicio']); // Navega a la página 'inicio'
