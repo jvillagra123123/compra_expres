@@ -71,13 +71,11 @@ const routes: Routes = [
     loadChildren: () => import('./features/auth/admin/admin.module').then( m => m.AdminPageModule)
   },
   {
-    path: 'admin-panel',
-    loadChildren: () => import('./pages/admin-panel/admin-panel.module').then( m => m.AdminPanelPageModule)
-  },
-  {
     path: '**',
     redirectTo: 'login'
   },
+  
+
   
 
   
