@@ -71,9 +71,30 @@ const routes: Routes = [
     loadChildren: () => import('./features/auth/admin/admin.module').then( m => m.AdminPageModule)
   },
   {
+    path: 'gestion-admin',
+    loadChildren: () => import('./pages/gestion-admin/gestion-admin.module').then( m => m.GestionAdminPageModule)
+  },
+  {
+    path: 'create-admin',
+    loadChildren: () => import('./pages/create-admin/create-admin.module').then( m => m.CreateAdminPageModule)
+  },
+  {
+    path: 'list-admin',
+    loadChildren: () => import('./pages/list-admin/list-admin.module').then( m => m.ListAdminPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'login'
   },
+  
+  
+
+  
+
+  
+
+  
+
   
   
   

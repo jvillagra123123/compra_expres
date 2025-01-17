@@ -1,0 +1,33 @@
+<app-header></app-header>
+<ion-content>
+  <div><img src="/assets/logo-login3.png" class="background-image"></div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Gestión de solicitudes de locales</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      panel de control donde puede revisar todas las solicitudes de nuevos locales que se han enviado. Aquí podrá aprobar o rechazar cada solicitud.
+    </ion-card-content>
+    <ion-button routerLink="/admin" expand="block" color="primary">IR</ion-button>
+  </ion-card>
+  <br>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Creación de un nuevo local</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      crear manualmente un nuevo local en la plataforma. Podrá ingresar toda la información relevante sobre el local, como su nombre, ubicación, categoría y horarios.
+    </ion-card-content>
+    <ion-button routerLink="/create-admin" expand="block" color="secondary">IR</ion-button>
+  </ion-card>
+  <br>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Visualización de usuarios y locales</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      vista general de todos los usuarios registrados en la plataforma, así como de todos los locales que se han creado.
+    </ion-card-content>
+    <ion-button routerLink="/list-admin" expand="block" color="tertiary">IR</ion-button>
+  </ion-card>
+</ion-content>

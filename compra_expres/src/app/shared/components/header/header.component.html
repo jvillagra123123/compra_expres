@@ -1,10 +1,15 @@
-<ion-header>
+<ion-header *ngIf="hideHeader"> <!-- Solo muestra el header si hideHeader es false -->
   <ion-toolbar>
-    <ion-buttons slot="" *ngIf="showBackButton">
-    <ion-buttons (click)="onBack()">
-      <ion-icon name="arrow-back"></ion-icon>
-    </ion-buttons>
+    <ion-buttons slot="start" *ngIf="showBackButton">
+      <ion-button (click)="onBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
     </ion-buttons>
     <ion-title>{{ title }}</ion-title>
   </ion-toolbar>
 </ion-header>
+
+<!-- Botón flotante visible solo si hideHeader es true -->
+<button *ngIf="!hideHeader" class="back-only-button" (click)="onBack()">
+  <ion-icon name="arrow-back"></ion-icon>
+</button>

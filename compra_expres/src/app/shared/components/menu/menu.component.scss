@@ -8,10 +8,7 @@ ion-title {
     
 }
 
-/* Estilo para el botón "Cerrar Sesión" */
-.close {
-    --color: red; /* Color del texto rojo */
-}
+
 
 
 /* Estilo para el ion-menu */
@@ -36,5 +33,32 @@ ion-menu-button {
     color: #ffffff; /* Color azul para el botón del menú */
 }
 
+.custom-menu {
+    --border-radius: 20px; /* Curvatura de las esquinas */
+    --width: 250px; /* Ancho del menú */
+    --background: #f4f4f4; /* Fondo del menú */
+    --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+  }
+  
+  ion-content {
+    padding-top: 20px; /* Espacio superior para que no queden pegados los botones */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; /* Distribuye los botones uniformemente */
+    height: 100%;
+  }
+  
+  .menu-button {
+    margin-bottom: 10px; /* Espaciado entre los botones */
+    --background: #3880ff; /* Color de fondo de los botones */
+    --color: white; /* Color del texto */
+    --border-radius: 10px; /* Bordes redondeados para los botones */
+  }
+  
+  .close {
+    --background: #f53d3d; /* Color rojo para el botón de cerrar sesión */
+    --color: white; /* Color del texto */
+  }
+  
 
 

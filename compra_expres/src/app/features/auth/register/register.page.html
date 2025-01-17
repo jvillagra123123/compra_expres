@@ -66,8 +66,11 @@
       <button  expand="block" type="submit" class="submit-button" [disabled]="registerForm.invalid">Registrar</button>
     </form>
 
-    <div class="links-container">
-      <p>¿Ya tienes una cuenta? <a routerLink="/login" class="login-link">Inicia Sesión</a></p>
-    </div>
+
+      <p class="message-container">
+        ¿No tienes una cuenta?
+        <a routerLink="/login" class="create-account">Crear una cuenta</a>
+      </p>
+
   </div>
 </ion-content>

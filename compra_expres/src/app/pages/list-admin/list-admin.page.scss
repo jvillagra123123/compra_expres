@@ -1,4 +1,9 @@
-.background-image {
+.selected {
+    background-color: #e0f7fa;
+    border-left: 4px solid #007aff;
+  }
+  
+  .background-image {
     /* Posiciona la imagen en la parte superior izquierda */
     position: absolute; 
     top: 0;
@@ -14,4 +19,4 @@
     background-position: center; 
     /* Ubica la imagen detrás de otros elementos */
     z-index: -2; 
-  }
+}

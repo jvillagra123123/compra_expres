@@ -34,6 +34,10 @@
   max-width: 400px; /* Máximo ancho en pantallas grandes */
 }
 
+.form-title{
+  text-align: center;
+}
+
 /* Título del formulario */
 .login-title {
   font-size: 1.8rem;
@@ -65,11 +69,11 @@ input {
 }
 
 /* Botón de inicio de sesión */
-.login-button {
+.submit-button {
   width: 100%;
   padding: 0.8rem;
   font-size: 1rem;
-  background-color: #007bff;
+  background-color: #7de54a;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -87,12 +91,38 @@ input {
   display: block;
   text-align: center;
   margin-top: 1rem;
-  color: #007bff;
+  color: #FF6F00;
   text-decoration: none;
   font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .forgot-password:hover,
 .create-account:hover {
   text-decoration: underline;
+}
+
+.message-container {
+  font-size: 0.9rem; /* Tamaño reducido de la fuente */
+  color: #555; /* Color del texto */
+  display: inline-flex; /* Coloca los elementos en línea */
+  align-items: baseline; /* Alinea el texto y el enlace en la misma línea base */
+  gap: 0.3rem; /* Espaciado reducido entre el texto y el enlace */
+}
+
+.message-container a {
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  color: #FF6F00; /* Color del enlace */
+  font-weight:bold, /* Hace que el enlace destaque un poco más */
+}
+
+.message-container a:hover {
+  text-decoration: underline; /* Agrega subrayado al pasar el cursor */
+}
+
+.error-message {
+  color: #FF0000; /* Color de error */
+  font-weight: bold; /* Negrita el mensaje de error */
+  margin-top: 0.5rem; /* Espacio superior al mensaje de error */
+  font-size: 0.7rem; /* Tamaño reducido de la fuente */
 }

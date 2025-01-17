@@ -7,3 +7,27 @@ ion-title {
     text-align: center;
     
 }
+ion-toolbar {
+  --background: #ffffff;
+  --color: #fff;
+}
+
+ion-title {
+  text-align: center;
+}
+
+/* Estilo para el botón flotante de retroceso */
+.back-only-button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  z-index: 10; /* Asegurarse de que esté por encima del contenido */
+}
+
+.back-only-button ion-icon {
+  color: #ffffff; /* Cambia este color según lo que necesites */
+  font-size: 30px;
+}
