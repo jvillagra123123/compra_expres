@@ -1,63 +1,63 @@
-<!-- Barra Superior -->
- <ion-header>
+<ion-header>
   <ion-toolbar>
-    <app-header title="Compra Expres"></app-header>
+    <app-header title="Perfil"></app-header>
   </ion-toolbar>
- </ion-header>
+</ion-header>
 
- <!-- Titulo de Pagina -->
-  <ion-content class="profile-page">
-    <div class="title-container">
-      <h1 class="app-title">Perfil</h1>
+<ion-content class="profile-page">
+  <div class="title-container">
+    <h1 class="app-title">Perfil</h1>
+  </div>
+
+  <!-- Foto de Perfil -->
+  <div class="avatar">
+    <ion-avatar>
+      <img [src]="userPhoto" alt="Foto de perfil" />
+    </ion-avatar>
+    <ion-button expand="block" color="secondary">
+      <input type="file" (change)="onFileSelected($event)" hidden />
+      Cambiar Foto
+    </ion-button>
+  </div>
+
+  <!-- Información de Usuario -->
+  <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+    <!-- Nombre -->
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="firstName"></ion-input>
+    </ion-item>
+
+    <!-- Apellido -->
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input formControlName="lastName"></ion-input>
+    </ion-item>
+
+    <!-- Correo -->
+    <ion-item>
+      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-input formControlName="email" readonly></ion-input>
+    </ion-item>
+
+    <!-- Contraseña -->
+    <ion-item>
+      <ion-label position="floating">Nueva Contraseña</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <!-- Confirmar Contraseña -->
+    <ion-item>
+      <ion-label position="floating">Confirmar Contraseña</ion-label>
+      <ion-input type="password" formControlName="confirmPassword"></ion-input>
+    </ion-item>
+    <div class="error-message" *ngIf="profileForm.hasError('notMatching')">
+      Las contraseñas no coinciden.
     </div>
 
-    <!-- Información de Usuario -->
-    <form [formGroup]="profileForm" (ngSubmit)="onProfile()">
-    <!-- Foto de Perfil -->
-     <div class="avatar">
-      <ion-buttons slot="end">
-        <ion-avatar>
-          <img src="/assets/images.jpg">
-        </ion-avatar>
-      </ion-buttons>
-     </div>
-      <br>
-      <!-- Campo Nombre -->
-       <ion-item class="input-item" lines="none">
-        <ion-label position="floating">Nombre</ion-label>
-        <ion-input type="text" formControlName="firstName"></ion-input>
-      </ion-item>
-      <div class="error-message" *ngIf="profileForm.get('firstName')?.touched && profileForm.get('firstName')?.invalid">
-        El nombre es obligatorio.
-      </div>
-      <!-- Campo Apellido -->
-      <ion-item class="input-item" lines="none">
-        <ion-label position="floating">Apellido</ion-label>
-        <ion-input type="text" formControlName="lastName"></ion-input>
-      </ion-item>
-      <div class="error-message" *ngIf="profileForm.get('lastName')?.touched && profileForm.get('lastName')?.invalid">
-        El apellido es obligatorio.
-      </div>
-
-      <!-- Campo Contraseña -->
-      <ion-item class="input-item" lines="none">
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password" formControlName="password"></ion-input>
-      </ion-item>
-      <div class="error-message" *ngIf="profileForm.get('password')?.touched && profileForm.get('password')?.invalid">
-        La contraseña debe tener al menos 6 caracteres.
-      </div>
-      <!-- Confirmación de Contraseña -->
-
-      <ion-item class="input-item" lines="none">
-        <ion-label position="floating">Confirmar Contraseña</ion-label>
-        <ion-input type="password" formControlName="confirmPassword"></ion-input>
-      </ion-item>
-      <div class="error-message" *ngIf="profileForm.get('confirmPassword')?.touched && profileForm.get('confirmPassword')?.invalid">
-        Las contraseñas no coinciden.
-      </div>
-      <!-- Botón de Guardar Cambios -->
-       <ion-button expand="block" color="primary" [disabled]="profileForm.invalid" routerLink="/inicio">Guardar Cambios</ion-button>
-
-    </form>
-  </ion-content>
+    <!-- Botón para Guardar Cambios -->
+    <ion-button expand="block" color="primary" [disabled]="profileForm.invalid">
+      Guardar Cambios
+    </ion-button>
+  </form>
+</ion-content>
