@@ -1,13 +1,60 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>create-admin</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <app-header></app-header>
+  <div>
+    <img src="/assets/logo-login3.png" class="background-image">
+  </div>
+  <br>
+  <br>
+  <br>
+  <!-- Formulario de informe -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Información del Local</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Nombre del Local</ion-label>
+        <ion-input placeholder="Ingrese el nombre"></ion-input>
+      </ion-item>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">create-admin</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      <ion-item>
+        <ion-label position="stacked">Dirección</ion-label>
+        <ion-input placeholder="Ingrese la dirección"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Cantidad de Estrellas</ion-label>
+        <ion-input type="number" placeholder="Ingrese cantidad de estrellas"></ion-input>
+      </ion-item>
+
+      <!-- Sección para las comidas -->
+      <ion-item>
+        <ion-label position="stacked">Escriba las Comidas del Local</ion-label>
+        <ion-input
+          placeholder="Escribe las Comidas"
+          [(ngModel)]="newCategory"
+          (keyup.enter)="addCategory()"
+        ></ion-input>
+      </ion-item>
+      
+      <!-- Contenedor para mostrar las categorías -->
+      <div class="categories-container">
+        <div class="category-item" *ngFor="let category of categories; let i = index">
+          {{ category }}
+          <ion-icon name="close-circle" class="delete-icon" (click)="removeCategory(i)"></ion-icon>
+        </div>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botón para agregar fotos -->
+  <ion-button expand="block" class="add-photo-button">
+    Agregar Foto
+  </ion-button>
+
+  <!-- Botón para agregar local -->
+  <ion-button expand="block" class="add-local-button">
+    Agregar Local
+  </ion-button>
 </ion-content>
