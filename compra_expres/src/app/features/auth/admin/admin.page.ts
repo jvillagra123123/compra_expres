@@ -78,12 +78,12 @@ export class AdminPage implements OnInit {
   }
 
   aceptarCita(citas: any) {
-    this.showToast(`Local aceptado: ${citas.cliente}`, 'success');
+    this.showToast(`Local aceptado: ${citas.clientes}`,'success');
     this.citas = this.citas.filter((c) => c !== citas); // Eliminar cita aceptada
   }
   
   rechazarCita(citas: any) {
-    this.showToast(`Local rechazado: ${citas.cliente}`, 'danger');
+    this.showToast(`Local rechazado: ${citas.clientes}`,'danger');
     this.citas = this.citas.filter((c) => c !== citas); // Eliminar cita rechazada
   }
 
