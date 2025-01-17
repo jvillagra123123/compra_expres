@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
-import { AlertController } from '@ionic/angular'; // Agregar AlertController
+import { AlertController } from '@ionic/angular';
+import { AuthService } from '../../../core/services/auth.service'; // Ajusta las rutas relativas
+
 
 @Component({
+  standalone: false, // Esto indica que el componente es independiente
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
-  standalone: false,
 })
 export class RegisterPage implements OnInit {
   registerForm: FormGroup;
@@ -15,7 +17,8 @@ export class RegisterPage implements OnInit {
   constructor(
     private fb: FormBuilder,
     private navCtrl: NavController,
-    private alertController: AlertController  // Inyectar AlertController
+    private alertController: AlertController,
+    private authService: AuthService // Inyectar AuthService
   ) {
     // Crear el formulario de registro
     this.registerForm = this.fb.group(
@@ -53,22 +56,43 @@ export class RegisterPage implements OnInit {
     return password === confirmPassword ? null : { notMatching: true };
   }
 
-  // Método para registrar al usuario
+  // Método para registrar al usuario usando Firebase
   async onRegister() {
     if (this.registerForm.valid) {
       const { firstName, lastName, email, password } = this.registerForm.value;
-      console.log('Registro:', { firstName, lastName, email, password });
 
-      // Muestra la alerta de éxito
-      await this.showRegisterAlert();
+      try {
+        // Llamar al servicio de autenticación
+        await this.authService.signUp(firstName, lastName, email, password);
+
+        // Mostrar la alerta de éxito
+        await this.showRegisterAlert();
+
+        // Navegar al login después del registro exitoso
+        this.goToLogin();
+      } catch (error) {
+        // Manejo de errores de Firebase
+        this.showErrorAlert((error as any).message);
+      }
     }
   }
 
-  // Método para mostrar la alerta
+  // Método para mostrar la alerta de éxito
   async showRegisterAlert() {
     const alert = await this.alertController.create({
       header: '¡Cuenta creada con éxito!',
       message: 'Tu cuenta se ha creado correctamente.',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  // Método para mostrar errores
+  async showErrorAlert(message: string) {
+    const alert = await this.alertController.create({
+      header: 'Error en el registro',
+      message: message,
       buttons: ['OK'],
     });
 

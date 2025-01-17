@@ -1,4 +1,6 @@
-<app-header title="Compra Expres"></app-header>
+<ion-toolbar>
+  <ion-title>Compra Expres</ion-title>
+</ion-toolbar>
 
 <ion-content class="form-page register-page">
   <div><img src="/assets/logo-login3.png" class="background-image"></div>
@@ -61,7 +63,7 @@
         </div>
       </div>
 
-      <button  expand="block" type="submit" class="submit-button" (click)="onRegister()" [disabled]="registerForm.invalid">Registrar</button>
+      <button  expand="block" type="submit" class="submit-button" [disabled]="registerForm.invalid">Registrar</button>
     </form>
 
     <div class="links-container">

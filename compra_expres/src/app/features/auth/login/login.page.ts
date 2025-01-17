@@ -2,12 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular'; // Importar el ToastController
+import { AngularFireAuth } from '@angular/fire/compat/auth'; // Importar AngularFireAuth
+import { AngularFirestore } from '@angular/fire/compat/firestore'; // Importar AngularFirestore
+
+// Definir la interfaz para los datos del usuario
+interface UserData {
+  role: string; // Define que el campo `role` debe ser una cadena
+}
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
-  standalone: false,
+  standalone: false, // Si no es standalone, mantenemos false
 })
 export class LoginPage implements OnInit {
   loginForm!: FormGroup;
@@ -17,7 +24,9 @@ export class LoginPage implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private afAuth: AngularFireAuth, // Inyectar AngularFireAuth
+    private firestore: AngularFirestore // Inyectar AngularFirestore
   ) {}
 
   ngOnInit() {
@@ -49,24 +58,28 @@ export class LoginPage implements OnInit {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
 
-      // Credenciales de usuario normal
-      const userEmail = 'user@user.com';
-      const userPassword = 'user1234';
+      try {
+        // Autenticar usuario con Firebase Authentication
+        const userCredential = await this.afAuth.signInWithEmailAndPassword(email, password);
+        const user = userCredential.user;
 
-      // Credenciales de administrador
-      const adminEmail = 'admin@admin.com';
-      const adminPassword = 'Admin1234';
+        if (user) {
+          // Consultar el rol del usuario desde Firestore
+          const userDoc = await this.firestore.collection('users').doc(user.uid).get().toPromise();
+          const userData = userDoc?.data() as UserData; // Especificar el tipo de `userData`
 
-      if (email === userEmail && password === userPassword) {
-        this.errorMessage = '';
-        await this.showToast('¡Inicio de sesión exitoso como usuario!');
-        this.router.navigate(['/inicio']); // Cambiar a la página de inicio de usuario
-      } else if (email === adminEmail && password === adminPassword) {
-        this.errorMessage = '';
-        await this.showToast('¡Inicio de sesión exitoso como administrador!');
-        this.router.navigate(['/admin']); // Cambiar a la página de administrador
-      } else {
-        this.errorMessage = 'Correo o contraseña incorrectos.';
+          if (userData?.role === 'admin') {
+            await this.showToast('¡Inicio de sesión exitoso como administrador!');
+            this.router.navigate(['/admin']); // Cambiar a la página de administrador
+          } else if (userData?.role === 'estandar') {
+            await this.showToast('¡Inicio de sesión exitoso como usuario!');
+            this.router.navigate(['/inicio']); // Cambiar a la página de usuario
+          } else {
+            this.errorMessage = 'No tienes asignado un rol válido.';
+          }
+        }
+      } catch (error) {
+        this.errorMessage = (error as any).message;
       }
     } else {
       this.displayErrors();

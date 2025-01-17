@@ -1,6 +1,5 @@
-import { Component, Directive, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -14,7 +13,6 @@ export class AdminPage implements OnInit {
   citas: any[] = []; // Simulación de citas solicitadas por clientes
   piercingForm!: FormGroup;
   imagenSeleccionada: File | null = null;
-  fb: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,29 +24,19 @@ export class AdminPage implements OnInit {
     // Simulación de datos de citas
     this.citas = [
       {
-        Local: 
-        'La chica ale',
-
-        Direcion:
-        'pto barroso 681',
-
-        Comentario: 
-        'Excelente atención',
+        Local: 'La chica ale',
+        Direccion: 'pto barroso 681',
+        Comentario: 'Excelente atención',
       },
       {
-        Local:
-        'Lupita',
-
-        Direccion:
-        'Calle 32',
-
-        Comentario:
-        'Muy bueno',
-        
+        Local: 'Lupita',
+        Direccion: 'Calle 32',
+        Comentario: 'Muy bueno',
       },
     ];
 
-    this.piercingForm = this.fb.group({
+    // Ajuste: Usar `this.formBuilder` en lugar de `this.fb`
+    this.piercingForm = this.formBuilder.group({
       nombre: ['', [Validators.required]],
       precio: [
         '',
@@ -58,12 +46,12 @@ export class AdminPage implements OnInit {
   }
 
   aceptarCita(cita: any) {
-    this.showToast(` ${cita.cliente}.`);
+    this.showToast(`Cita aceptada: ${cita.Local}.`);
     this.citas = this.citas.filter((c) => c !== cita); // Eliminar cita aceptada
   }
 
   rechazarCita(cita: any) {
-    this.showToast(` ${cita.cliente}.`);
+    this.showToast(`Cita rechazada: ${cita.Local}.`);
     this.citas = this.citas.filter((c) => c !== cita); // Eliminar cita rechazada
   }
 
@@ -78,10 +66,10 @@ export class AdminPage implements OnInit {
         Direccion: this.piercingForm.value.direccion || 'Sin dirección',
         Comentario: 'Nuevo local añadido por el administrador.',
       };
-  
+
       // Agregar el nuevo local al arreglo de citas
       this.citas.push(nuevoLocal);
-  
+
       // Mensaje de confirmación
       this.showToast('Local agregado correctamente.');
       this.piercingForm.reset();
@@ -93,7 +81,6 @@ export class AdminPage implements OnInit {
       );
     }
   }
-  
 
   cerrarSesion() {
     this.router.navigate(['/login']); // Redirigir al login
@@ -103,7 +90,7 @@ export class AdminPage implements OnInit {
   async showToast(message: string, color: string = 'success') {
     const toast = await this.toastController.create({
       message,
-      duration: 0,
+      duration: 2000, // Ajustar duración del toast
       position: 'bottom',
       color,
     });
