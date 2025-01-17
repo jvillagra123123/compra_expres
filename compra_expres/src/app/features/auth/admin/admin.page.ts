@@ -1,6 +1,4 @@
-import { Component, Directive, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -10,15 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin.page.scss'],
   standalone: false,
 })
-
 export class AdminPage implements OnInit {
   citas: any[] = []; // Simulación de citas solicitadas por clientes
-  piercingForm!: FormGroup;
-  imagenSeleccionada: File | null = null;
-  fb: any;
 
   constructor(
-    private formBuilder: FormBuilder,
     private toastController: ToastController,
     private router: Router
   ) {}
@@ -27,124 +20,90 @@ export class AdminPage implements OnInit {
     // Simulación de datos de citas
     this.citas = [
       {
-        Local:'La chica ale',
-        Direcion:'Providencia 324',
-        Comentario:'Excelente atención',
+        Local: 'La chica ale',
+        Direccion: 'Providencia 324',
+        Comentario: 'Excelente atención',
+        estrella: 4, // Estrellas
       },
       {
-        Local:'La chica ale',
-        Direcion:'Providencia 324',
-        Comentario:'Excelente atención',
+        Local: 'Los mejores completos',
+        Direccion: 'Santiago Centro 128',
+        Comentario: 'Muy profesional',
+        estrella: 5,
       },
       {
-        Local:'La chica ale',
-        Direcion:'Providencia 324',
-        Comentario:'Excelente atención',
+        Local: 'Donde las dulces',
+        Direccion: 'Las Condes 525',
+        Comentario: 'Buen servicio',
+        estrella: 3,
       },
       {
-        Local:'La chica ale',
-        Direcion:'Providencia 324',
-        Comentario:'Excelente atención',
+        Local: 'Donde las dulces',
+        Direccion: 'Las Condes 525',
+        Comentario: 'Buen servicio',
+        estrella: 3,
       },
       {
-        Local:'La chica ale',
-        Direcion:'Providencia 324',
-        Comentario:'Excelente atención',
+        Local: 'Donde las dulces',
+        Direccion: 'Las Condes 525',
+        Comentario: 'Buen servicio',
+        estrella: 3,
       },
       {
-        Local:'La chica ale',
-        Direcion:'Providencia 324',
-        Comentario:'Excelente atención',
+        Local: 'Donde las dulces',
+        Direccion: 'Las Condes 525',
+        Comentario: 'Buen servicio',
+        estrella: 3,
       },
       {
-        Local:'La chica ale',
-        Direcion:'Providencia 324',
-        Comentario:'Excelente atención',
+        Local: 'Donde las dulces',
+        Direccion: 'Las Condes 525',
+        Comentario: 'Buen servicio',
+        estrella: 3,
       },
       {
-        Local:'La chica ale',
-        Direcion:'Providencia 324',
-        Comentario:'Excelente atención',
+        Local: 'Donde las dulces',
+        Direccion: 'Las Condes 525',
+        Comentario: 'Buen servicio',
+        estrella: 3,
       },
+      {
+        Local: 'Donde las dulces',
+        Direccion: 'Las Condes 525',
+        Comentario: 'Buen servicio',
+        estrella: 3,
+      },
+      // Más citas...
     ];
-
-    this.piercingForm = this.fb.group({
-      nombre: ['', [Validators.required]],
-      precio: [
-        '',
-        [Validators.required, Validators.min(1), Validators.pattern('^[0-9]+$')],
-      ],
-    });
   }
 
-  aceptarCita(citas: any) {
-    this.showToast(`Local aceptado: ${citas.clientes}`,'success');
-    this.citas = this.citas.filter((c) => c !== citas); // Eliminar cita aceptada
-  }
-  
-  rechazarCita(citas: any) {
-    this.showToast(`Local rechazado: ${citas.clientes}`,'danger');
-    this.citas = this.citas.filter((c) => c !== citas); // Eliminar cita rechazada
+  aceptarCita(cita: any) {
+    cita.estado = 'aceptado'; // Cambiar estado de la cita a aceptada
+    this.showToast(`Local ${cita.Local} aceptado.`, 'success');
+    // Eliminar la cita aceptada de la lista
+    this.citas = this.citas.filter((c) => c !== cita);
   }
 
-
-  onFileSelected(event: any) {
-    this.imagenSeleccionada = event.target.files[0] || null;
-  }
-
-  async agregarPiercing() {
-    if (this.piercingForm.valid && this.imagenSeleccionada) {
-      const nuevoLocal = {
-        Local: this.piercingForm.value.nombre,
-        Direccion: this.piercingForm.value.direccion || 'Sin dirección',
-        Comentario: 'Nuevo local añadido por el administrador.',
-      };
-  
-      // Agregar el nuevo local al arreglo de citas
-      this.citas.push(nuevoLocal);
-  
-      // Mensaje de confirmación
-      this.showToast('Local agregado correctamente.');
-      this.piercingForm.reset();
-      this.imagenSeleccionada = null;
-    } else {
-      this.showToast(
-        'Por favor completa todos los campos y selecciona una imagen.',
-        'danger'
-      );
-    }
-  }
-  
-
-  cerrarSesion() {
-    this.router.navigate(['/login']); // Redirigir al login
-    this.showToast('Sesión cerrada correctamente.', 'warning');
+  rechazarCita(cita: any) {
+    cita.estado = 'rechazado'; // Cambiar estado de la cita a rechazada
+    this.showToast(`Local ${cita.Local} rechazado.`, 'danger');
+    // Eliminar la cita rechazada de la lista
+    this.citas = this.citas.filter((c) => c !== cita);
   }
 
   async showToast(message: string, color: string = 'success') {
     const toast = await this.toastController.create({
       message,
-      duration: 2000, // Duración del toast en milisegundos (ajusta a tu gusto)
+      duration: 2000,
       position: 'bottom',
       color,
       buttons: [
         {
           text: 'Okay',
           role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
+        },
+      ],
     });
     toast.present();
-  }
-
-  
-
-  
-
-  navigateBack() {
-    this.router.navigate(['/inicio']); // Navega a la página 'inicio'
   }
 }

@@ -1,33 +1,22 @@
 <ion-content>
   <app-header></app-header>
   <div><img src="/assets/logo-login3.png" class="background-image"></div>
-  <div class="admin-container">   
-        <!-- Gestión de Agendas -->
-        <ion-card class="admin-card">  
-          <ion-card-content>
-            <div *ngIf="citas.length > 0; else noCitas">
-              <ion-list>
-                <ion-item *ngFor="let cita of citas" lines="none">
-                  <ion-label class="ion-card-title">
-                    <h6>Local: {{ cita.Local }}</h6>
-                    <h6>Direcion: {{ cita.Direcion }}</h6>
-                    <h6>Comentario: {{ cita.Comentario }}</h6>
-                  </ion-label>
-                  <ion-buttons class="card-buttons-container">
-                    <ion-button color="success" (click)="aceptarCita(cita)">Aceptar</ion-button>
-                    <ion-button color="danger" (click)="rechazarCita(cita)">Rechazar</ion-button>
-                  </ion-buttons>
-                </ion-item>
-              </ion-list>
-            </div>
-            <ng-template #noCitas>
-              <p>No hay locales pendientes.</p>
-            </ng-template>
-          </ion-card-content>
-        </ion-card>
-      </div>
-    </ion-content>
+  <!-- Lista de Usuarios -->
+   <br>
+   <br>
+   <br>
+  <ion-list>
+    <!-- Recorremos las citas -->
+    <ion-item *ngFor="let cita of citas">
+      <ion-label>
+        <h2>{{ cita.Local }}</h2>
+        <p><strong>Dirección:</strong> {{ cita.Direccion }}</p>
+        <p><strong>Comentario:</strong> {{ cita.Comentario }}</p>
+        <p><strong>Estrellas:</strong> {{ cita.estrella }}</p>
+      </ion-label>
 
-
-
-
+      <ion-button color="success" (click)="aceptarCita(cita)">Aceptar</ion-button>
+      <ion-button color="danger" (click)="rechazarCita(cita)">Rechazar</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
