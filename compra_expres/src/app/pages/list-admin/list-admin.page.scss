@@ -1,0 +1,22 @@
+.selected {
+    background-color: #e0f7fa;
+    border-left: 4px solid #007aff;
+  }
+  
+  .background-image {
+    /* Posiciona la imagen en la parte superior izquierda */
+    position: absolute; 
+    top: 0;
+    left: 0;
+    /* Define el ancho y alto de la imagen */
+    width: 100%; 
+    height: 100%; 
+    /* Define la ruta de la imagen */
+    background-image: url('/assets/logo-login3.jpg'); 
+    /* Hace que la imagen cubra todo el contenedor */
+    background-size: cover; 
+    /* Centra la imagen en el contenedor */
+    background-position: center; 
+    /* Ubica la imagen detrás de otros elementos */
+    z-index: -2; 
+}

@@ -79,9 +79,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/create-admin/create-admin.module').then( m => m.CreateAdminPageModule)
   },
   {
+    path: 'list-admin',
+    loadChildren: () => import('./pages/list-admin/list-admin.module').then( m => m.ListAdminPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'login'
   },
+  
   
 
   
