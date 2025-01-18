@@ -1,21 +1,40 @@
 <ion-menu contentId="main-content" side="start" class="custom-menu">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menú</ion-title>
+      <div>
+        <img src="/assets/logo-login3.png" class="background-image">
+      </div>
+      <ion-title>MENU</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <ion-button routerLink="/profile" expand="block" class="menu-button">Perfil</ion-button>
-    <ion-button routerLink="/chat" expand="block" class="menu-button">Comentarios</ion-button>
-    <ion-button routerLink="/select-profile" expand="block" class="menu-button">Cambiar a "Gestión de local/es"</ion-button>
-    <ion-button routerLink="/search-local" expand="block" class="menu-button">Buscar Local</ion-button>
-    <ion-button class="close" routerLink="/login" expand="block" class="menu-button">Cerrar Sesión</ion-button>
+  <div>
+    <img src="/assets/logo-login3.png" class="background-image">
+  </div>
+    <div class="menu-option">
+      <ion-button routerLink="/profile" expand="block" class="menu-button">Perfil</ion-button>
+    </div>
+    <div class="menu-option">
+      <ion-button routerLink="/chat" expand="block" class="menu-button">Comentarios</ion-button>
+    </div>
+    <div class="menu-option">
+      <ion-button routerLink="/select-profile" expand="block" class="menu-button">Cambiar a “Gestión de Locales”</ion-button>
+    </div>
+    <div class="menu-option">
+      <ion-button routerLink="/search-local" expand="block" class="menu-button">Buscar Local</ion-button>
+    </div>
+    <div class="menu-option">
+      <ion-button routerLink="/login" expand="block" class="menu-button close">Cerrar Sesión</ion-button>
+    </div>
   </ion-content>
 </ion-menu>
 
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
+      <div>
+        <img src="/assets/logo-login3.png" class="background-image">
+      </div>
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
