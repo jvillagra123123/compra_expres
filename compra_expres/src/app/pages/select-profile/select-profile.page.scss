@@ -12,7 +12,7 @@ body {
     align-items: center; /* Centra los elementos en el eje horizontal */
     justify-content: center; /* Centra los elementos en el eje vertical */
     padding: 20px; /* Añade un relleno de 20px dentro del contenedor */
-    gap: 20px; /* Añade un espacio de 20px entre los elementos */
+    gap: 10px; /* Añade un espacio de 20px entre los elementos */
 }
 
 .profile-option {
@@ -44,8 +44,8 @@ body {
 
 .separator {
     width: 80%; /* Define el ancho de la línea separadora al 80% del ancho del contenedor */
-    height: 3px; /* Establece un grosor de 2px para la línea */
-    background-color: #bbbbbb; /* Establece un color gris claro para la línea */
+    height: 5px; /* Establece un grosor de 2px para la línea */
+    background-color: #cccccc; /* Establece un color gris claro para la línea */
     margin: 100px 0; /* Añade márgenes superior e inferior de 20px */
 }
 
@@ -57,3 +57,21 @@ ion-content {
     align-items: center; /* Centra los elementos horizontalmente */
     justify-content: flex-start; /* Alinea los elementos en la parte superior */
 }
+
+.background-image {
+    /* Posiciona la imagen en la parte superior izquierda */
+    position: absolute; 
+    top: 0;
+    left: 0;
+    /* Define el ancho y alto de la imagen */
+    width: 100%; 
+    height: 100%; 
+    /* Define la ruta de la imagen */
+    background-image: url('/assets/logo-login3.jpg'); 
+    /* Hace que la imagen cubra todo el contenedor */
+    background-size: cover; 
+    /* Centra la imagen en el contenedor */
+    background-position: center; 
+    /* Ubica la imagen detrás de otros elementos */
+    z-index: -2; 
+  }
