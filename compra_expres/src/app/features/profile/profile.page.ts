@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -17,7 +19,8 @@ export class ProfilePage implements OnInit {
   constructor(
     private fb: FormBuilder,
     private afAuth: AngularFireAuth,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private alertCtr: AlertController
   ) {}
 
   ngOnInit() {
@@ -103,13 +106,56 @@ export class ProfilePage implements OnInit {
     }
   }
 
-  // Cambiar la foto del usuario
-  async onFileSelected(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      // Simular la subida a Firebase Storage
-      this.userPhoto = URL.createObjectURL(file);
-      this.profileForm.patchValue({ photoURL: this.userPhoto });
+  // Cambiar la foto del usuario con opciones de cámara o galería
+  async changeProfilePicture() {
+    try {
+      const alert = await this.alertCtr.create({
+        header: 'Cambiar foto de perfil',
+        message: '¿Cómo deseas subir la imagen?',
+        buttons: [
+          {
+            text: 'Cámara',
+            handler: () => this.selectImage(CameraSource.Camera)
+          },
+          {
+            text: 'Galería',
+            handler: () => this.selectImage(CameraSource.Photos)
+          }
+        ]
+      });
+
+      await alert.present();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // Seleccionar imagen desde la cámara o la galería
+  async selectImage(source: CameraSource) {
+    try {
+      const image = await Camera.getPhoto({
+        quality: 90,
+        allowEditing: true,
+        resultType: CameraResultType.Base64,
+        source: source,
+      });
+
+      if (image && image.base64String) {
+        const base64Image = `data:image/jpeg;base64,${image.base64String}`;
+        if (this.userId) {
+          // Actualizar la foto en Firestore
+          await this.firestore
+            .collection('users')
+            .doc(this.userId)
+            .update({ photoURL: base64Image });
+          this.userPhoto = base64Image; // Actualizar localmente
+          this.profileForm.patchValue({ photoURL: base64Image });
+          alert('Foto de perfil actualizada correctamente.');
+        }
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 }
+
