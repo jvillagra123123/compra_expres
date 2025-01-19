@@ -19,6 +19,8 @@ export class ProfilePage implements OnInit {
   authSrv: any;
   userSrv: any;
   user: any;
+  takePicture: any; // Función para tomar una foto
+  selectPicture: any;  // Función para seleccionar una foto
 
   constructor(
     private fb: FormBuilder,
@@ -126,7 +128,6 @@ export class ProfilePage implements OnInit {
           }
         ]
       });
-
       await alert.present();
       
     } catch (error) {
@@ -161,7 +162,7 @@ export class ProfilePage implements OnInit {
       });
 
       if (image && image.base64String) {
-        const base64Image = `data:image/jpeg;base64`;
+        const base64Image = `data:image/jpeg;base64,${image.base64String}`;
       
         // Actualizar la imagen en Firestore
         const uid = await this.authSrv.getUserId();
@@ -171,15 +172,10 @@ export class ProfilePage implements OnInit {
           alert('Foto de perfil actualizada correctamente');
         }
       }
-    } catch (error) {
+    } 
+    catch (error) {
       console.log(error);
     }
-  }
-  selectPicture(): (boolean | void | { [key: string]: any; }) | Promise<boolean | void | { [key: string]: any; }> {
-    throw new Error('Method not implemented.');
-  }
-  takePicture(): (boolean | void | { [key: string]: any; }) | Promise<boolean | void | { [key: string]: any; }> {
-    throw new Error('Method not implemented.');
   }
 
 }
