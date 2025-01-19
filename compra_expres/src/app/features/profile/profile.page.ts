@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { AlertController } from '@ionic/angular';
+import { User } from 'src/app/core/models/user.model';
 
 @Component({
   selector: 'app-profile',
@@ -15,6 +16,9 @@ export class ProfilePage implements OnInit {
   profileForm!: FormGroup;
   userId: string | null = null; // Almacena el ID del usuario autenticado
   userPhoto: string = '/assets/images.jpg'; // Foto de perfil predeterminada
+  authSrv: any;
+  userSrv: any;
+  user: any;
 
   constructor(
     private fb: FormBuilder,
@@ -106,8 +110,7 @@ export class ProfilePage implements OnInit {
     }
   }
 
-  // Cambiar la foto del usuario con opciones de cámara o galería
-  async changeProfilePicture() {
+  async changeProfilePicture(){
     try {
       const alert = await this.alertCtr.create({
         header: 'Cambiar foto de perfil',
@@ -125,37 +128,59 @@ export class ProfilePage implements OnInit {
       });
 
       await alert.present();
+      
     } catch (error) {
       console.log(error);
     }
   }
 
-  // Seleccionar imagen desde la cámara o la galería
-  async selectImage(source: CameraSource) {
+  async selectImage(source: CameraSource){
     try {
+
+      const alertCtr = await this.alertCtr.create({
+        header: 'Cambiar foto de perfil',
+        message: '¿Estás seguro de que deseas cambiar la imagen?',
+        buttons: [
+          {
+            text: 'Camára',
+            handler:() => this.takePicture ()
+          },
+          {
+            text: 'Galería',
+            handler:() => this.selectPicture ()
+          },
+        ] 
+       
+        });
+      // Tomar o seleccionar una imagen
       const image = await Camera.getPhoto({
         quality: 90,
         allowEditing: true,
-        resultType: CameraResultType.Base64,
+        resultType: CameraResultType.Base64, // Devuelve la imagen en Base64
         source: source,
       });
 
       if (image && image.base64String) {
-        const base64Image = `data:image/jpeg;base64,${image.base64String}`;
-        if (this.userId) {
-          // Actualizar la foto en Firestore
-          await this.firestore
-            .collection('users')
-            .doc(this.userId)
-            .update({ photoURL: base64Image });
-          this.userPhoto = base64Image; // Actualizar localmente
-          this.profileForm.patchValue({ photoURL: base64Image });
-          alert('Foto de perfil actualizada correctamente.');
+        const base64Image = `data:image/jpeg;base64`;
+      
+        // Actualizar la imagen en Firestore
+        const uid = await this.authSrv.getUserId();
+        if(uid){
+          await this.userSrv.updateProfilePicture(uid, base64Image );
+          this.user.profilePicture = base64Image; // Actualizar localmente
+          alert('Foto de perfil actualizada correctamente');
         }
       }
     } catch (error) {
       console.log(error);
     }
   }
+  selectPicture(): (boolean | void | { [key: string]: any; }) | Promise<boolean | void | { [key: string]: any; }> {
+    throw new Error('Method not implemented.');
+  }
+  takePicture(): (boolean | void | { [key: string]: any; }) | Promise<boolean | void | { [key: string]: any; }> {
+    throw new Error('Method not implemented.');
+  }
+
 }
 
