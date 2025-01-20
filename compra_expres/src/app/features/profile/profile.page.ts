@@ -13,77 +13,75 @@ import { User } from 'src/app/core/models/user.model';
   standalone: false
 })
 export class ProfilePage implements OnInit {
-  profileForm!: FormGroup;
-  userId: string | null = null; // Almacena el ID del usuario autenticado
+  profileForm!: FormGroup; // Formulario reactivo para manejar los datos del perfil
+  userId: string | null = null; // ID del usuario autenticado
   userPhoto: string = '/assets/images.jpg'; // Foto de perfil predeterminada
-  authSrv: any;
-  userSrv: any;
-  user: any;
-  takePicture: any; // Función para tomar una foto
-  selectPicture: any;  // Función para seleccionar una foto
+  authSrv: any; // Servicio de autenticación (no inicializado correctamente)
+  userSrv: any; // Servicio de usuario (no inicializado correctamente)
+  user: any; // Almacena información del usuario (falta tipado específico)
+  takePicture: any; // Método para tomar una foto (no implementado correctamente)
+  selectPicture: any; // Método para seleccionar una foto (no implementado correctamente)
 
   constructor(
-    private fb: FormBuilder,
-    private afAuth: AngularFireAuth,
-    private firestore: AngularFirestore,
-    private alertCtr: AlertController
+    private fb: FormBuilder, // Generador de formularios
+    private afAuth: AngularFireAuth, // Autenticación de Firebase
+    private firestore: AngularFirestore, // Base de datos Firestore
+    private alertCtr: AlertController // Controlador de alertas
   ) {}
 
   ngOnInit() {
-    this.initializeForm();
-    this.loadUserData(); // Cargar la información del usuario al cargar la página
+    this.initializeForm(); // Inicializa el formulario reactivo
+    this.loadUserData(); // Carga los datos del usuario autenticado
   }
 
-  // Inicializar el formulario de perfil
+  // Inicializa el formulario con validaciones
   initializeForm() {
     this.profileForm = this.fb.group(
       {
-        firstName: ['', Validators.required],
-        lastName: ['', Validators.required],
-        email: [{ value: '', disabled: true }], // Campo deshabilitado para no permitir edición
-        photoURL: [''], // Para almacenar la URL de la foto
+        firstName: ['', Validators.required], // Nombre requerido
+        lastName: ['', Validators.required], // Apellido requerido
+        email: [{ value: '', disabled: true }], // Email deshabilitado
+        photoURL: [''], // URL de la foto de perfil
         password: [
-          '',
+          '', // Contraseña con validaciones (longitud y patrones)
           [
             Validators.minLength(6),
             Validators.maxLength(20),
             Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,20}$/),
           ],
         ],
-        confirmPassword: [''], // Confirmar la contraseña
+        confirmPassword: [''], // Campo para confirmar contraseña
       },
-      { validator: this.passwordMatchValidator }
+      { validator: this.passwordMatchValidator } // Validador personalizado para confirmar contraseñas
     );
   }
 
-  // Validador para confirmar contraseñas
+  // Valida que las contraseñas coincidan
   passwordMatchValidator(group: FormGroup) {
     const password = group.get('password')?.value;
     const confirmPassword = group.get('confirmPassword')?.value;
-    return password && confirmPassword && password === confirmPassword
-      ? null
-      : { notMatching: true };
+    return password === confirmPassword ? null : { notMatching: true };
   }
+  
 
-  // Cargar datos del usuario desde Firebase
+  // Carga los datos del usuario desde Firebase y los asigna al formulario
   async loadUserData() {
     const user = await this.afAuth.currentUser;
     if (user) {
       this.userId = user.uid;
 
-      // Obtener información del usuario desde Firestore
+      // Recupera información del usuario desde Firestore
       this.firestore
         .collection('users')
         .doc(this.userId)
         .valueChanges()
         .subscribe((userData: any) => {
           if (userData) {
-            // Cargar los datos en el formulario
             this.profileForm.patchValue({
               firstName: userData.firstName,
               lastName: userData.lastName,
-              email: user.email, // Correo del usuario autenticado
-              photoURL: userData.photoURL || this.userPhoto, // Foto del usuario
+              email: user.email,
+              photoURL: userData.photoURL || this.userPhoto,
             });
             this.userPhoto = userData.photoURL || this.userPhoto;
           }
@@ -91,18 +89,18 @@ export class ProfilePage implements OnInit {
     }
   }
 
-  // Guardar cambios en el perfil
+  // Guarda los cambios en el perfil del usuario
   async saveProfile() {
     if (this.profileForm.valid && this.userId) {
       const { firstName, lastName, photoURL, password } = this.profileForm.value;
 
-      // Actualizar la información del usuario en Firestore
+      // Actualiza la información en Firestore
       await this.firestore
         .collection('users')
         .doc(this.userId)
         .update({ firstName, lastName, photoURL });
 
-      // Si hay una contraseña nueva, actualízala
+      // Actualiza la contraseña en Firebase si se especifica
       if (password) {
         const user = await this.afAuth.currentUser;
         await user?.updatePassword(password);
@@ -112,7 +110,8 @@ export class ProfilePage implements OnInit {
     }
   }
 
-  async changeProfilePicture(){
+  // Permite cambiar la foto de perfil
+  async changeProfilePicture() {
     try {
       const alert = await this.alertCtr.create({
         header: 'Cambiar foto de perfil',
@@ -120,63 +119,42 @@ export class ProfilePage implements OnInit {
         buttons: [
           {
             text: 'Cámara',
-            handler: () => this.selectImage(CameraSource.Camera)
+            handler: () => this.selectImage(CameraSource.Camera),
           },
           {
             text: 'Galería',
-            handler: () => this.selectImage(CameraSource.Photos)
-          }
-        ]
+            handler: () => this.selectImage(CameraSource.Photos),
+          },
+        ],
       });
       await alert.present();
-      
     } catch (error) {
       console.log(error);
     }
   }
 
-  async selectImage(source: CameraSource){
+  // Permite seleccionar una imagen desde la cámara o galería
+  async selectImage(source: CameraSource) {
     try {
-
-      const alertCtr = await this.alertCtr.create({
-        header: 'Cambiar foto de perfil',
-        message: '¿Estás seguro de que deseas cambiar la imagen?',
-        buttons: [
-          {
-            text: 'Camára',
-            handler:() => this.takePicture ()
-          },
-          {
-            text: 'Galería',
-            handler:() => this.selectPicture ()
-          },
-        ] 
-       
-        });
-      // Tomar o seleccionar una imagen
       const image = await Camera.getPhoto({
         quality: 90,
         allowEditing: true,
-        resultType: CameraResultType.Base64, // Devuelve la imagen en Base64
+        resultType: CameraResultType.Base64,
         source: source,
       });
 
       if (image && image.base64String) {
         const base64Image = `data:image/jpeg;base64,${image.base64String}`;
-      
-        // Actualizar la imagen en Firestore
-        const uid = await this.authSrv.getUserId();
-        if(uid){
-          await this.userSrv.updateProfilePicture(uid, base64Image );
-          this.user.profilePicture = base64Image; // Actualizar localmente
-          alert('Foto de perfil actualizada correctamente');
+        if (this.userId) {
+          await this.firestore
+            .collection('users')
+            .doc(this.userId)
+            .update({ photoURL: base64Image });
+          this.userPhoto = base64Image;
         }
       }
-    } 
-    catch (error) {
+    } catch (error) {
       console.log(error);
     }
   }
-
 }
-
