@@ -15,7 +15,7 @@ import { User } from 'src/app/core/models/user.model';
 export class ProfilePage implements OnInit {
   profileForm!: FormGroup; // Formulario reactivo para manejar los datos del perfil
   userId: string | null = null; // ID del usuario autenticado
-  userPhoto: string = '/assets/images.jpg'; // Foto de perfil predeterminada
+  userPhoto: string = ''; // Foto de perfil predeterminada
   authSrv: any; // Servicio de autenticación (no inicializado correctamente)
   userSrv: any; // Servicio de usuario (no inicializado correctamente)
   user: any; // Almacena información del usuario (falta tipado específico)
