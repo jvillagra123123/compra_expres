@@ -1,9 +1,12 @@
 <app-menu></app-menu>
 
 <div class="background-container">
-    <img src="/assets/imagemap2.png" class="background-image">
+  
 
-    <!-- Botones -->
+    <div id="map"></div>
+
+
+    <!-- contenido 
     <div class="content-overlay">
       <ion-button class="custom-button" expand="block" (click)="selectCategory('verificados')">Verificados</ion-button>
     </div>
@@ -14,7 +17,6 @@
         <ion-button class="custom-button2" expand="block" (click)="selectCategory('all')">All</ion-button>
       </div>
 
-    <!-- Íconos que se muestran u ocultan -->
     <div *ngIf="selectedCategory === 'verificados'">
       <ion-icon routerLink="/local-verification" name="location-sharp" class="custom-location-icon"></ion-icon>
       <ion-icon routerLink="/local-verification" name="location-sharp" class="custom-location-icon3"></ion-icon>
@@ -31,4 +33,5 @@
       <ion-icon routerLink="/local-verification" name="location-sharp" class="custom-location-icon3"></ion-icon>
       <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon4"></ion-icon>
     </div>
+    -->
   </div>
