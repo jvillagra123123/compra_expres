@@ -70,7 +70,7 @@ export class LoginPage implements OnInit {
 
           if (userData?.role === 'admin') {
             await this.showToast('¡Inicio de sesión exitoso como administrador!');
-            this.router.navigate(['/admin']); // Cambiar a la página de administrador
+            this.router.navigate(['/gestion-admin']); // Cambiar a la página de administrador
           } else if (userData?.role === 'estandar') {
             await this.showToast('¡Inicio de sesión exitoso como usuario!');
             this.router.navigate(['/inicio']); // Cambiar a la página de usuario
