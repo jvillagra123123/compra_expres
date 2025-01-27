@@ -140,8 +140,13 @@ export class ProfilePage implements OnInit {
 
         // Si se ingresó una nueva contraseña, actualízala
         if (newPassword && newPassword.trim() !== '') {
-          if (newPassword.length < 6) {
-            alert('La nueva contraseña debe tener al menos 6 caracteres.');
+          if (newPassword.length < 6 || newPassword.length > 12) {
+            if (newPassword.length < 6) {
+              alert('La nueva contraseña debe tener al menos 6 caracteres.');
+            }
+            if (newPassword.length > 12) {
+              alert('La nueva contraseña debe tener un máximo de 12 caracteres.');
+            }
             return;
           }
           await user.updatePassword(newPassword);

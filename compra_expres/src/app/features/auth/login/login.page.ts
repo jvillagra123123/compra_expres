@@ -43,7 +43,7 @@ export class LoginPage implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(8),
+          Validators.minLength(6),
           Validators.maxLength(12),
         ],
       ],
@@ -110,7 +110,7 @@ export class LoginPage implements OnInit {
       if (errors['password'].errors['required']) {
         this.errorMessage = 'La contraseña es obligatoria.';
       } else if (errors['password'].errors['minlength']) {
-        this.errorMessage = 'La contraseña debe tener al menos 8 caracteres.';
+        this.errorMessage = 'La contraseña debe tener al menos 6 caracteres.';
       } else if (errors['password'].errors['maxlength']) {
         this.errorMessage = 'La contraseña no debe exceder 12 caracteres.';
       }
