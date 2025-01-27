@@ -5,6 +5,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { AlertController } from '@ionic/angular';
 import { User } from 'src/app/core/models/user.model';
+import { AuthProvider, EmailAuthProvider } from '@angular/fire/auth'; // Importa correctamente EmailAuthProvider
+
 
 @Component({
   selector: 'app-profile',
@@ -36,25 +38,14 @@ export class ProfilePage implements OnInit {
 
   // Inicializa el formulario con validaciones
   initializeForm() {
-    this.profileForm = this.fb.group(
-      {
-        firstName: ['', Validators.required], // Nombre requerido
-        lastName: ['', Validators.required], // Apellido requerido
-        email: [{ value: '', disabled: true }], // Email deshabilitado
-        photoURL: [''], // URL de la foto de perfil
-        password: [
-          '', // Contraseña con validaciones (longitud y patrones)
-          [
-            Validators.minLength(6),
-            Validators.maxLength(20),
-            Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,20}$/),
-          ],
-        ],
-        confirmPassword: [''], // Campo para confirmar contraseña
-      },
-      { validator: this.passwordMatchValidator } // Validador personalizado para confirmar contraseñas
-    );
+    this.profileForm = this.fb.group({
+      firstName: ['', Validators.required], // Nombre obligatorio
+      lastName: ['', Validators.required],  // Apellido obligatorio
+      password: ['', Validators.required],  // Contraseña actual obligatoria
+      newPassword: [''],                    // Nueva contraseña (opcional)
+    });
   }
+  
 
   // Valida que las contraseñas coincidan
   passwordMatchValidator(group: FormGroup) {
@@ -66,49 +57,109 @@ export class ProfilePage implements OnInit {
 
   // Carga los datos del usuario desde Firebase y los asigna al formulario
   async loadUserData() {
-    const user = await this.afAuth.currentUser;
-    if (user) {
-      this.userId = user.uid;
-
-      // Recupera información del usuario desde Firestore
-      this.firestore
-        .collection('users')
-        .doc(this.userId)
-        .valueChanges()
-        .subscribe((userData: any) => {
-          if (userData) {
-            this.profileForm.patchValue({
-              firstName: userData.firstName,
-              lastName: userData.lastName,
-              email: user.email,
-              photoURL: userData.photoURL || this.userPhoto,
-            });
-            this.userPhoto = userData.photoURL || this.userPhoto;
-          }
-        });
-    }
-  }
-
-  // Guarda los cambios en el perfil del usuario
-  async saveProfile() {
-    if (this.profileForm.valid && this.userId) {
-      const { firstName, lastName, photoURL, password } = this.profileForm.value;
-
-      // Actualiza la información en Firestore
-      await this.firestore
-        .collection('users')
-        .doc(this.userId)
-        .update({ firstName, lastName, photoURL });
-
-      // Actualiza la contraseña en Firebase si se especifica
-      if (password) {
-        const user = await this.afAuth.currentUser;
-        await user?.updatePassword(password);
+    try {
+      const user = await this.afAuth.currentUser; // Obtén el usuario autenticado
+      if (user) {
+        this.userId = user.uid; // Guarda el UID del usuario
+        console.log('UID del usuario:', this.userId); // Verifica si llega el UID
+  
+        // Recupera los datos del usuario desde Firestore
+        this.firestore
+          .collection('users')
+          .doc(this.userId)
+          .valueChanges()
+          .subscribe((userData: any) => {
+            if (userData) {
+              console.log('Datos del usuario desde Firestore:', userData); // Verifica los datos
+  
+              // Aquí actualizamos los datos del formulario
+              this.profileForm.patchValue({
+                firstName: userData.firstName || '', // Nombre
+                lastName: userData.lastName || '', // Apellido
+                email: user.email, // Email del usuario
+                photoURL: userData.photoURL || this.userPhoto, // Imagen
+              });
+  
+              console.log('Datos asignados al formulario:', this.profileForm.value); // Verifica el formulario
+              this.userPhoto = userData.photoURL || this.userPhoto; // Actualiza la imagen
+            } else {
+              console.log('No se encontraron datos del usuario en Firestore.');
+            }
+          });
+      } else {
+        console.log('No se pudo obtener el usuario autenticado.');
       }
-
-      alert('Perfil actualizado correctamente.');
+    } catch (error) {
+      console.error('Error al cargar los datos del usuario:', error); // Maneja posibles errores
     }
   }
+  
+  isFormValid(): boolean {
+    const password = this.profileForm.get('password')?.value;
+    return this.profileForm.valid && !!password;
+  }
+
+  passwordFieldHasValue(): boolean {
+    const password = this.profileForm.get('password');
+    console.log('Password value:', password?.value);
+    console.log('Password valid:', password?.valid);
+    return !!password?.value && password.valid;
+  }
+  
+
+ // Guarda los cambios en el perfil del usuario
+ async saveProfile() {
+  if (this.profileForm.valid && this.userId) {
+    const { firstName, lastName, password, newPassword } = this.profileForm.value;
+
+    // Comprobar si se ingresó la contraseña actual
+    if (!password || password.trim() === '') {
+      alert('Por favor, ingresa tu contraseña actual para confirmar los cambios.');
+      return;
+    }
+
+    try {
+      const user = await this.afAuth.currentUser;
+
+      if (user) {
+        // Reautenticar al usuario con la contraseña actual
+        const credential = EmailAuthProvider.credential(
+          user.email || '',
+          password
+        );
+        await user.reauthenticateWithCredential(credential);
+
+        // Actualizar el nombre y apellido en Firestore
+        await this.firestore
+          .collection('users')
+          .doc(this.userId)
+          .update({
+            firstName,
+            lastName,
+          });
+
+        // Si se ingresó una nueva contraseña, actualízala
+        if (newPassword && newPassword.trim() !== '') {
+          if (newPassword.length < 6) {
+            alert('La nueva contraseña debe tener al menos 6 caracteres.');
+            return;
+          }
+          await user.updatePassword(newPassword);
+          alert('Contraseña actualizada correctamente.');
+        }
+
+        alert('Perfil actualizado correctamente.');
+      }
+    } catch (error) {
+      console.error('Error al guardar los cambios:', error);
+      alert('La contraseña actual ingresada es incorrecta.');
+    }
+  } else {
+    alert('Por favor, completa todos los campos obligatorios.');
+  }
+}
+
+
 
   // Permite cambiar la foto de perfil
   async changeProfilePicture() {

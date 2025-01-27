@@ -30,4 +30,17 @@ export class AuthService {
       throw error;
     }
   }
+
+  async getCurrentUser() {
+    try {
+      const user = await this.afAuth.currentUser;
+      return user;
+    } catch (error) {
+      console.error('Error al obtener el usuario actual:', error);
+      throw error;
+    }
+  }
+  
 }
+
+

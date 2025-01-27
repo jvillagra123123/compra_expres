@@ -13,47 +13,45 @@
 
   <!-- Información de Usuario -->
    <!-- Codigo a Resolver Abajo <form [formGroup]="profileForm" (ngSubmit)="onProfile()"---> 
-  <form>
-    <!-- Foto de Perfil -->
-    <div class="avatar-container">
-      <ion-avatar>
-        <img [src]="userPhoto || 'assets/default-avatar.png'" alt="Foto de perfil" />
-      </ion-avatar>
-      <ion-button color="secondary" (click)="changeProfilePicture()">Cambiar Foto</ion-button>
-    </div>
+    <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+      <!-- Foto de Perfil -->
+      <div class="avatar-container">
+        <ion-avatar>
+          <img [src]="userPhoto || 'assets/default-avatar.png'" alt="Foto de perfil" />
+        </ion-avatar>
+        <ion-button color="secondary" (click)="changeProfilePicture()">Cambiar Foto</ion-button>
+      </div>
+    
+      <!-- Campo Nombre -->
+      <ion-item class="input-item" lines="none">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" formControlName="firstName" required></ion-input>
+      </ion-item>
+    
+      <!-- Campo Apellido -->
+      <ion-item class="input-item" lines="none">
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input type="text" formControlName="lastName" required></ion-input>
+      </ion-item>
+    
+      <!-- Campo Contraseña -->
+      <ion-item class="input-item" lines="none">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password" required></ion-input>
+      </ion-item>
+    
+      <ion-item class="input-item" lines="none">
+        <ion-label position="floating">Nueva Contraseña</ion-label>
+        <ion-input type="password" formControlName="newPassword"></ion-input>
+      </ion-item>
+      
+      <ion-button
+        expand="block"
+        color="primary"
+        type="submit"
+        [disabled]="!profileForm.valid || !profileForm.get('password')?.value">
+        Guardar Cambios
+      </ion-button>
 
-    <ion-item class="input-item" lines="none">
-      <ion-label position="floating">Nombre</ion-label>
-      <ion-input type="text" formControlName="firstName" required></ion-input>
-    </ion-item>
-    <div class="error-message" *ngIf="profileForm.get('firstName')?.touched && profileForm.get('firstName')?.invalid">
-      El nombre es obligatorio.
-    </div>
-
-    <ion-item class="input-item" lines="none">
-      <ion-label position="floating">Apellido</ion-label>
-      <ion-input type="text" formControlName="lastName" required></ion-input>
-    </ion-item>
-    <div class="error-message" *ngIf="profileForm.get('lastName')?.touched && profileForm.get('lastName')?.invalid">
-      El apellido es obligatorio.
-    </div>
-
-    <ion-item class="input-item" lines="none">
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" formControlName="password" required></ion-input>
-    </ion-item>
-    <div class="error-message" *ngIf="profileForm.get('password')?.touched && profileForm.get('password')?.invalid">
-      La contraseña debe tener al menos 6 caracteres.
-    </div>
-
-    <ion-item class="input-item" lines="none">
-      <ion-label position="floating">Confirmar Contraseña</ion-label>
-      <ion-input type="password" formControlName="confirmPassword" required></ion-input>
-    </ion-item>
-    <div class="error-message" *ngIf="profileForm.get('confirmPassword')?.touched && profileForm.get('confirmPassword')?.invalid">
-      Las contraseñas no coinciden.
-    </div>
-
-    <ion-button expand="block" color="primary" [disabled]="profileForm.invalid" type="submit">Guardar Cambios</ion-button>
-  </form>
+    </form>    
 </ion-content>
