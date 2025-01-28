@@ -211,3 +211,28 @@
   height: 100%;
   width: 100%;
 }
+
+button {
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: #ff6f61;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #ff3e2e;
+  box-shadow: 0 8px 20px rgba(255, 62, 46, 0.4);
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(1);
+  background: #e83525;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
