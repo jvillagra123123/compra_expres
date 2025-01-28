@@ -2,36 +2,12 @@
 
 <div class="background-container">
   
-
+ 
     <div id="map"></div>
-
-
-    
     <div class="content-overlay">
-      <ion-button class="custom-button" expand="block" (click)="selectCategory('verificados')">Verificados</ion-button>
+      <button (click)="createLocal()">Crear Local Aquí</button>
     </div>
-    <div class="content-overlay1">
-        <ion-button class="custom-button1" expand="block" (click)="selectCategory('sinVerificar')">Sin Verificar</ion-button>
-      </div>
-      <div class="content-overlay2">
-        <ion-button class="custom-button2" expand="block" (click)="selectCategory('all')">All</ion-button>
-      </div>
 
-    <div *ngIf="selectedCategory === 'verificados'">
-      <ion-icon routerLink="/local-verification" name="location-sharp" class="custom-location-icon"></ion-icon>
-      <ion-icon routerLink="/local-verification" name="location-sharp" class="custom-location-icon3"></ion-icon>
-    </div>
-    <div *ngIf="selectedCategory === 'sinVerificar'">
-      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon1"></ion-icon>
-      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon2"></ion-icon>
-      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon4"></ion-icon>
-    </div>
-    <div *ngIf="selectedCategory === 'all'">
-      <ion-icon routerLink="/local-verification" name="location-sharp" class="custom-location-icon"></ion-icon>
-      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon1"></ion-icon>
-      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon2"></ion-icon>
-      <ion-icon routerLink="/local-verification" name="location-sharp" class="custom-location-icon3"></ion-icon>
-      <ion-icon routerLink="/local" name="location-sharp" class="custom-location-icon4"></ion-icon>
-    </div>
-   
+
+
   </div>

@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioPage implements OnInit {
   selectedCategory: string = 'all';
+  private map!: google.maps.Map; // Referencia al mapa
 
   // Método para seleccionar la categoría
   selectCategory(category: string) {
@@ -29,12 +30,47 @@ export class InicioPage implements OnInit {
 
     // Callback cuando el script se haya cargado
     script.onload = () => {
-      const map = new google.maps.Map(document.getElementById('map') as HTMLElement, {
+      this.map = new google.maps.Map(document.getElementById('map') as HTMLElement, {
         center: { lat: -33.4489, lng: -70.6693 }, // Coordenadas iniciales
         zoom: 12,
       });
     };
 
     document.body.appendChild(script);
+  }
+
+  createLocal() {
+    if (!navigator.geolocation) {
+      alert('La geolocalización no está soportada en este navegador.');
+      return;
+    }
+  
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        // Obtenemos las coordenadas actuales del dispositivo
+        const userLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+  
+        console.log('Ubicación del usuario:', userLocation);
+  
+        // Centrar el mapa en la ubicación actual del dispositivo
+        this.map.setCenter(userLocation);
+  
+        // Crear el marcador en la ubicación del dispositivo
+        new google.maps.Marker({
+          position: userLocation,
+          map: this.map,
+          title: 'Nuevo Local',
+        });
+  
+        alert('Local creado correctamente en tu ubicación actual.');
+      },
+      (error) => {
+        console.error('Error al obtener la ubicación:', error);
+        alert('No se pudo obtener tu ubicación. Por favor, verifica los permisos de geolocalización.');
+      }
+    );
   }
 }
