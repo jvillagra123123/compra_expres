@@ -1,9 +1,16 @@
-<ion-searchbar [debounce]="1000" (ionInput)="handleInput($event)"></ion-searchbar>
+<ion-searchbar 
+  [debounce]="1000" 
+  (ionInput)="handleInput($event)" 
+  placeholder="Busca locales o comidas...">
+</ion-searchbar>
 
 <ion-list>
-  @for (result of results; track result) {
-  <ion-item>
-    <ion-label>{{ result }}</ion-label>
-  </ion-item>
+  @for (result of results; track result.nombre) {
+    <ion-item>
+      <ion-label>
+        <h2>{{ result.nombre }}</h2>
+        <p>Comidas: {{ result.comidas.join(', ') }}</p>
+      </ion-label>
+    </ion-item>
   }
 </ion-list>

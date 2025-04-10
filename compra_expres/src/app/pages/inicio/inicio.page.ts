@@ -24,7 +24,7 @@ export class InicioPage implements OnInit {
   loadMap() {
     // Crear el script para cargar Google Maps API
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyChh93UNfEhNzwXxostDla2kuU1tBMXRv8`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBUzyOaxWwWh5rO5HGAS9eFsCpEuZQlD2g`;
     script.async = true;
     script.defer = true;
 
